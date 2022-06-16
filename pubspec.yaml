@@ -1,13 +1,14 @@
 name: adderlink
-description: A starting point for Dart libraries or applications.
+description: A dart library for controlling Adderlink devices via network
 version: 1.0.0
-# homepage: https://www.example.com
+homepage: https://github.com/point-source/adderlink
 
 environment:
-  sdk: '>=2.17.3 <3.0.0'
+  sdk: ">=2.17.3 <3.0.0"
 
-# dependencies:
-#   path: ^1.8.0
+dependencies:
+  http: ^0.13.4
+  xml2json: ^5.3.3
 
 dev_dependencies:
   dart_code_metrics: ^4.15.2

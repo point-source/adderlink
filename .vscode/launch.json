@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "name": "Example",
+            "type": "dart",
+            "request": "launch",
+            "program": "example/adderlink_example.dart"
+        }
+    ]
+}

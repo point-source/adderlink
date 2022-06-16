@@ -1,8 +1,4 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
+/// A dart library for controlling Adderlink devices via network
 library adderlink;
 
 export 'src/adderlink_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
