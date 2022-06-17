@@ -48,7 +48,7 @@ class AlifResponse<T> {
         "version": version.toString(),
         "timestamp": timestamp.toIso8601String(),
         "success": success.toString(),
-        "errors": {"error": errors.firstOrNull.toMap()},
+        "errors": {"error": errors.firstOrNull?.toMap()},
       };
 }
 

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:adderlink/adderlink.dart';
 
 extension LoginRequest on Adderlink {
@@ -14,7 +16,13 @@ extension LoginRequest on Adderlink {
     final r = await get(queryParams);
     final body = r.bodyAsJsonMap['api_response'];
 
-    return AlifResponse.fromMap(body)
+    final loginData = AlifResponse.fromMap(body)
         .copyWith<LoginData>(body: LoginData.fromMap(body));
+
+    if (loginData.body?.token != null) {
+      token = loginData.body?.token ?? '';
+    }
+
+    return loginData;
   }
 }
