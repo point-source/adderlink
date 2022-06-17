@@ -12,7 +12,7 @@ This library currently supports only the ALIF (Infinity) series of KVM over IP d
 - [ ] get_presets
 - [ ] connect_channel
 - [ ] connect_preset
-- [x] disconnect_channel
+- [ ] disconnect_channel
 - [ ] create_preset
 - [ ] delete_preset
 - [ ] create_channel
@@ -20,7 +20,7 @@ This library currently supports only the ALIF (Infinity) series of KVM over IP d
 - [ ] delete_c_usb
 - [ ] update_c_usb
 - [x] connect_c_usb
-- [ ] disconnect_c_usb
+- [x] disconnect_c_usb
 - [ ] reboot_device
 - [ ] replace_device
 - [ ] get_servers
