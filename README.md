@@ -13,7 +13,7 @@ A dart library for controlling Adderlink devices via network
 - [ ] create_preset
 - [ ] delete_preset
 - [ ] create_channel
-- [ ] get_all_c_usb
+- [x] get_all_c_usb
 - [ ] delete_c_usb
 - [ ] update_c_usb
 - [x] connect_c_usb
