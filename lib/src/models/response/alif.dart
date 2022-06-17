@@ -50,6 +50,11 @@ class AlifResponse<T> {
         "success": success.toString(),
         "errors": {"error": errors.firstOrNull?.toMap()},
       };
+
+  @override
+  String toString() {
+    return 'AlifResponse(version: $version, timestamp: $timestamp, success: $success, errors: $errors)';
+  }
 }
 
 class Error {

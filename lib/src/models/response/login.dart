@@ -23,4 +23,9 @@ class LoginData {
 
   factory LoginData.fromJson(String source) =>
       LoginData.fromMap(json.decode(source));
+
+  @override
+  String toString() {
+    return 'LoginData(token: $token)';
+  }
 }

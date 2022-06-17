@@ -52,7 +52,7 @@ class CUsbLanExtender {
         mac: json["mac"],
         type: CUsbExtenderType.fromString(json["type"]),
         name: json["name"],
-        online: json["online"] == 1 ? true : false,
+        online: json["online"] == '1' ? true : false,
         ip: json["ip"],
         connectedTo: json["connectedTo"] ?? '',
       );
@@ -61,10 +61,15 @@ class CUsbLanExtender {
         "mac": mac,
         "type": type.name,
         "name": name,
-        "online": online ? 1 : 0,
+        "online": online ? '1' : '0',
         "ip": ip,
         "connectedTo": connectedTo,
       };
+
+  @override
+  String toString() {
+    return 'CUsbLanExtender(mac: $mac, type: $type, name: $name, online: $online, ip: $ip, connectedTo: $connectedTo)';
+  }
 }
 
 enum CUsbExtenderType {
