@@ -9,7 +9,7 @@ A dart library for controlling Adderlink devices via network
 - [ ] get_presets
 - [ ] connect_channel
 - [ ] connect_preset
-- [ ] disconnect_channel
+- [x] disconnect_channel
 - [ ] create_preset
 - [ ] delete_preset
 - [ ] create_channel
