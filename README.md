@@ -1,7 +1,10 @@
-A dart library for controlling Adderlink devices via network 
+A dart library for controlling Adderlink devices via network
+
+This library currently support only the ALIF (Infinity) series of KVM over IP devices
 
 ## Features
 
+#### Adderlink Infinity Series
 - [x] login
 - [x] logout
 - [ ] get_devices
@@ -26,11 +29,28 @@ A dart library for controlling Adderlink devices via network
 ## Usage
 
 ```dart
-const like = 'sample';
+import 'package:adderlink/adderlink.dart';
+
+Future<void> main() async {
+  var adderlink = Adderlink(ipAddress: '192.168.1.100');
+
+  // Login with your username and password
+  await adderlink.login(username: 'username', password: 'password');
+
+  // Get a list of all C-USB Extenders
+  var cUsbList = await adderlink.getAllCUsb();
+
+  // Print each extender's data to the console
+  cUsbList.body?.forEach(print);
+
+  // Logout so that the token does not stay active and clog up the auth buffer
+  await adderlink.logout();
+}
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Issues and feature requests can be filed [here][2].
+
+[1]: https://pub.dev/packages/adderlink
+[2]: https://github.com/point-source/adderlink/issues

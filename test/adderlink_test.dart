@@ -2,15 +2,15 @@ import 'package:adderlink/adderlink.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('A group of tests', () {
-    final awesome = Awesome();
+  group('Adderlink', () {
+    final adderlink = Adderlink(ipAddress: '192.168.1.100');
 
     setUp(() {
       // Additional setup goes here.
     });
 
-    test('First Test', () {
-      expect(awesome.isAwesome, isTrue);
+    test('Init', () {
+      expect(adderlink, isA<Adderlink>());
     });
   });
 }
