@@ -3,7 +3,7 @@ A dart library for controlling Adderlink devices via network
 ## Features
 
 - [x] login
-- [ ] logout
+- [x] logout
 - [ ] get_devices
 - [ ] get_channels
 - [ ] get_presets
