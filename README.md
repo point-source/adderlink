@@ -1,6 +1,6 @@
 A dart library for controlling Adderlink devices via network
 
-This library currently support only the ALIF (Infinity) series of KVM over IP devices
+This library currently supports only the ALIF (Infinity) series of KVM over IP devices
 
 ## Features
 

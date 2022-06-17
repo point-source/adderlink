@@ -12,8 +12,8 @@ extension LoginRequest on Adderlink {
   /// the anonymous user (either the same one as for the OSD, or else an 'anonymous
   /// API user' account can be created).
   Future<AlifResponse<LoginData>> login({
-    required String username,
-    required String password,
+    String username = '',
+    String password = '',
   }) async {
     final queryParams = <String, String>{
       "v": apiVersion.toString(),
