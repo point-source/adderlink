@@ -1,17 +1,33 @@
 import 'package:adderlink/adderlink.dart';
+import 'package:chopper/chopper.dart';
 
 Future<void> main() async {
-  var adderlink = Adderlink(ipAddress: '192.168.1.100');
+  final chopper = ChopperClient(
+    baseUrl: "http://192.168.1.100",
+    converter: AlifConverter(),
+  );
+  var adderlink = AdderlinkService.create(chopper);
 
   // Login with your username and password
-  await adderlink.login(username: 'username', password: 'password');
+  final l = await adderlink.login(
+    username: '',
+    password: '',
+  );
+  final token = l.body?.body?.token;
+  if (token == null) throw Exception('Failed to retrieve token');
 
-  // Get a list of all C-USB Extenders
-  var cUsbList = await adderlink.getAllCUsb();
+  try {
+    // Get a list of all ALIF devices
+    var devices = await adderlink.getDevices(token: token);
 
-  // Print each extender's data to the console
-  cUsbList.body?.forEach(print);
+    // Print each extender's data to the console
+    devices.body?.body?.devices.device.forEach(print);
+  } catch (e) {
+    print(e);
+  } finally {
+    // Logout so that the token does not stay active and clog up the auth buffer
+    final lr = await adderlink.logout(token: token);
 
-  // Logout so that the token does not stay active and clog up the auth buffer
-  await adderlink.logout();
+    print(lr.body.toString());
+  }
 }
