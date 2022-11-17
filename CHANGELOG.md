@@ -1,3 +1,7 @@
+## 2.1.0
+
+- Make optional response fields nullable
+
 ## 2.0.0
 
 - Use chopper to generate request code
