@@ -4,10 +4,10 @@ import 'package:dart_mappable/dart_mappable.dart';
 @MappableClass()
 class GetChannelsBody with GetChannelsBodyMappable {
   GetChannelsBody({
-    required this.page,
-    required this.resultsPerPage,
+    this.page,
+    this.resultsPerPage,
     required this.channelCount,
-    required this.channels,
+    this.channels,
   });
 
   final String? page;
@@ -15,7 +15,7 @@ class GetChannelsBody with GetChannelsBodyMappable {
   final String? resultsPerPage;
   @MappableField(key: 'count_channels')
   final String channelCount;
-  final Channels channels;
+  final Channels? channels;
 }
 
 @MappableClass()

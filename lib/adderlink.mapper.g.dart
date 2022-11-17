@@ -392,7 +392,7 @@ class GetChannelsBodyMapper extends BaseMapper<p4.GetChannelsBody> {
 
   @override Function get decoder => decode;
   p4.GetChannelsBody decode(dynamic v) => checked(v, (Map<String, dynamic> map) => fromMap(map));
-  p4.GetChannelsBody fromMap(Map<String, dynamic> map) => p4.GetChannelsBody(page: Mapper.i.$getOpt(map, 'page'), resultsPerPage: Mapper.i.$getOpt(map, 'results_per_page'), channelCount: Mapper.i.$get(map, 'count_channels'), channels: Mapper.i.$get(map, 'channels'));
+  p4.GetChannelsBody fromMap(Map<String, dynamic> map) => p4.GetChannelsBody(page: Mapper.i.$getOpt(map, 'page'), resultsPerPage: Mapper.i.$getOpt(map, 'results_per_page'), channelCount: Mapper.i.$get(map, 'count_channels'), channels: Mapper.i.$getOpt(map, 'channels'));
 
   @override Function get encoder => encode;
   dynamic encode(p4.GetChannelsBody v) => toMap(v);
@@ -420,7 +420,7 @@ extension GetChannelsBodyObjectCopy<$R> on ObjectCopyWith<$R, p4.GetChannelsBody
 
 abstract class GetChannelsBodyCopyWith<$R> implements ObjectCopyWith<$R, p4.GetChannelsBody, p4.GetChannelsBody> {
   GetChannelsBodyCopyWith<$R2> _chain<$R2>(Then<p4.GetChannelsBody, p4.GetChannelsBody> t, Then<p4.GetChannelsBody, $R2> t2);
-  ChannelsCopyWith<$R> get channels;
+  ChannelsCopyWith<$R>? get channels;
   $R call({String? page, String? resultsPerPage, String? channelCount, p4.Channels? channels});
 }
 
@@ -428,8 +428,8 @@ class _GetChannelsBodyCopyWithImpl<$R> extends BaseCopyWith<$R, p4.GetChannelsBo
   _GetChannelsBodyCopyWithImpl(super.value, super.then, super.then2);
   @override GetChannelsBodyCopyWith<$R2> _chain<$R2>(Then<p4.GetChannelsBody, p4.GetChannelsBody> t, Then<p4.GetChannelsBody, $R2> t2) => _GetChannelsBodyCopyWithImpl($value, t, t2);
 
-  @override ChannelsCopyWith<$R> get channels => $value.channels.copyWith._chain($identity, (v) => call(channels: v));
-  @override $R call({Object? page = $none, Object? resultsPerPage = $none, String? channelCount, p4.Channels? channels}) => $then(p4.GetChannelsBody(page: or(page, $value.page), resultsPerPage: or(resultsPerPage, $value.resultsPerPage), channelCount: channelCount ?? $value.channelCount, channels: channels ?? $value.channels));
+  @override ChannelsCopyWith<$R>? get channels => $value.channels?.copyWith._chain($identity, (v) => call(channels: v));
+  @override $R call({Object? page = $none, Object? resultsPerPage = $none, String? channelCount, Object? channels = $none}) => $then(p4.GetChannelsBody(page: or(page, $value.page), resultsPerPage: or(resultsPerPage, $value.resultsPerPage), channelCount: channelCount ?? $value.channelCount, channels: or(channels, $value.channels)));
 }
 
 class ChannelsMapper extends BaseMapper<p4.Channels> {
