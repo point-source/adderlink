@@ -131,9 +131,9 @@ class Device with DeviceMappable {
   @MappableField(key: 'c_name')
   final String? channelName;
   @MappableField(key: 'count_receiver_groups')
-  final String countReceiverGroups;
+  final String? countReceiverGroups;
   @MappableField(key: 'count_receiver_presets')
-  final String countReceiverPresets;
+  final String? countReceiverPresets;
   @MappableField(key: 'count_users')
   final String countUsers;
 }
