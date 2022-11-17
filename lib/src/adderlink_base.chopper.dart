@@ -139,7 +139,7 @@ class _$AdderlinkService extends AdderlinkService {
     int resultsPerPage = 1000,
     required String token,
     int version = 11,
-    String method = ' get_channels',
+    String method = 'get_channels',
   }) {
     final String $url = '/api';
     final Map<String, dynamic> $params = <String, dynamic>{

@@ -152,7 +152,7 @@ abstract class AdderlinkService extends ChopperService {
     @Query('v') int version = 11,
 
     /// The remote procedure to call. Do not edit this
-    @Query() String method = ' get_channels',
+    @Query() String method = 'get_channels',
   });
 
   /// This method disconnects a receiver, a number of receivers, or all connected receivers.

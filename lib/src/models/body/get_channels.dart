@@ -10,9 +10,9 @@ class GetChannelsBody with GetChannelsBodyMappable {
     required this.channels,
   });
 
-  final String page;
+  final String? page;
   @MappableField(key: 'results_per_page')
-  final String resultsPerPage;
+  final String? resultsPerPage;
   @MappableField(key: 'count_channels')
   final String channelCount;
   final Channels channels;
