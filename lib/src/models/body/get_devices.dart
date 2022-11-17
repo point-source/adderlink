@@ -135,5 +135,5 @@ class Device with DeviceMappable {
   @MappableField(key: 'count_receiver_presets')
   final String? countReceiverPresets;
   @MappableField(key: 'count_users')
-  final String countUsers;
+  final String? countUsers;
 }
