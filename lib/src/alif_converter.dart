@@ -30,16 +30,18 @@ class AlifConverter implements Converter {
         final version = int.tryParse(j.remove('version'));
         if (version == null) throw Exception('API version could not be parsed');
 
+        final errors = (j.remove('errors') as Map?)
+                ?.values
+                .map((e) => Mapper.fromMap<AlifError>(e))
+                .toList() ??
+            [];
+
         final ar = AlifResponse<InnerType>(
           version: version,
           timestamp: DateTime.parse(j.remove('timestamp')),
           isSuccessful: j.remove('success') == '1',
-          errors: (j.remove('errors') as Map?)
-                  ?.values
-                  .map((e) => Mapper.fromMap<AlifError>(e))
-                  .toList() ??
-              [],
-          body: Mapper.fromValue<InnerType>(j),
+          errors: errors,
+          body: j.isEmpty ? null : Mapper.fromValue<InnerType>(j),
         );
 
         return response.copyWith<BodyType>(body: ar as BodyType);
