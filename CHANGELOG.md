@@ -1,3 +1,7 @@
+## 2.2.0
+
+- Make more response fields optional/nullable
+- Return empty alif bodies when errors prevent body data from being received
 ## 2.1.0
 
 - Make optional response fields nullable

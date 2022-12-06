@@ -1,6 +1,6 @@
 name: adderlink
 description: A dart library for controlling Adderlink devices on an IP network
-version: 2.1.0
+version: 2.2.0
 homepage: https://github.com/point-source/adderlink
 
 environment:
