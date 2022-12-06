@@ -87,7 +87,7 @@ class Device with DeviceMappable {
   @MappableField(key: 'd_version')
   final String version;
   @MappableField(key: 'd_variant')
-  final String variant;
+  final String? variant;
   @MappableField(key: 'd_ip_address0')
   final String? ipAddress0;
   @MappableField(key: 'd_ip_address')
@@ -113,9 +113,9 @@ class Device with DeviceMappable {
   @MappableField(key: 'd_status')
   final String status;
   @MappableField(key: 'd_domain_no')
-  final String domainNumber;
+  final String? domainNumber;
   @MappableField(key: 'd_device_vdi_type')
-  final String deviceVdiType;
+  final String? deviceVdiType;
   @MappableField(key: 'con_exclusive')
   final String? conExclusive;
   @MappableField(key: 'con_control')

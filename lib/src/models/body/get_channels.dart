@@ -63,9 +63,9 @@ class Channel with ChannelMappable {
   @MappableField(key: 'c_location')
   final String? location;
   @MappableField(key: 'c_channel_type')
-  final String channelType;
+  final String? channelType;
   @MappableField(key: 'c_tx_id')
-  final String transmitterId;
+  final String? transmitterId;
   @MappableField(key: 'c_favourite')
   final String favourite;
   @MappableField(key: 'channel_online')
