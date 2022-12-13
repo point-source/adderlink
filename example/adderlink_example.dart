@@ -3,7 +3,7 @@ import 'package:chopper/chopper.dart';
 
 Future<void> main() async {
   final chopper = ChopperClient(
-    baseUrl: "http://192.168.1.100",
+    baseUrl: Uri.parse("http://192.168.1.100"),
     converter: AlifConverter(),
   );
   var adderlink = AdderlinkService.create(chopper);

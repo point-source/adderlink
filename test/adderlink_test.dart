@@ -5,7 +5,7 @@ import 'package:test/test.dart';
 void main() {
   group('Adderlink: ', () {
     final chopper = ChopperClient(
-      baseUrl: "http://192.168.1.100",
+      baseUrl: Uri.parse("http://192.168.1.100"),
       converter: AlifConverter(),
     );
 

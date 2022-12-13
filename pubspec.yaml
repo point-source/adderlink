@@ -1,19 +1,19 @@
 name: adderlink
 description: A dart library for controlling Adderlink devices on an IP network
-version: 2.2.0
+version: 2.3.0
 homepage: https://github.com/point-source/adderlink
 
 environment:
   sdk: ">=2.17.3 <3.0.0"
 
 dependencies:
-  chopper: ^5.1.0
+  chopper: ^5.2.0
   dart_mappable: ^2.0.0-dev.6
   xml2json: ^5.3.3
 
 dev_dependencies:
   build_runner: ^2.3.2
-  chopper_generator: ^5.1.0+1
+  chopper_generator: ^5.2.0
   dart_code_metrics: ^5.1.0
   dart_mappable_builder: ^2.0.0-dev.6
   lints: ^2.0.0

@@ -1,3 +1,7 @@
+## 2.3.0
+
+- Accomodate breaking change in chopper lib on 5.2.0
+
 ## 2.2.0
 
 - Make more response fields optional/nullable

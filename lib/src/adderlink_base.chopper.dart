@@ -23,7 +23,7 @@ class _$AdderlinkService extends AdderlinkService {
     int version = 1,
     String method = 'login',
   }) {
-    final String $url = '/api';
+    final Uri $url = Uri.parse('/api');
     final Map<String, dynamic> $params = <String, dynamic>{
       'username': username,
       'password': password,
@@ -45,7 +45,7 @@ class _$AdderlinkService extends AdderlinkService {
     int version = 1,
     String method = 'logout',
   }) {
-    final String $url = '/api';
+    final Uri $url = Uri.parse('/api');
     final Map<String, dynamic> $params = <String, dynamic>{
       'token': token,
       'v': version,
@@ -77,7 +77,7 @@ class _$AdderlinkService extends AdderlinkService {
     int version = 8,
     String method = 'get_devices',
   }) {
-    final String $url = '/api';
+    final Uri $url = Uri.parse('/api');
     final Map<String, dynamic> $params = <String, dynamic>{
       'token': token,
       'device_type': deviceType,
@@ -110,7 +110,7 @@ class _$AdderlinkService extends AdderlinkService {
     int version = 5,
     String method = 'connect_channel',
   }) {
-    final String $url = '/api';
+    final Uri $url = Uri.parse('/api');
     final Map<String, dynamic> $params = <String, dynamic>{
       'c_id': channelId,
       'rx_id': receiverId,
@@ -141,7 +141,7 @@ class _$AdderlinkService extends AdderlinkService {
     int version = 11,
     String method = 'get_channels',
   }) {
-    final String $url = '/api';
+    final Uri $url = Uri.parse('/api');
     final Map<String, dynamic> $params = <String, dynamic>{
       'device_id': deviceId,
       'filter_c_name': filterChannelName,
@@ -172,7 +172,7 @@ class _$AdderlinkService extends AdderlinkService {
     int version = 6,
     String method = 'disconnect_channel',
   }) {
-    final String $url = '/api';
+    final Uri $url = Uri.parse('/api');
     final Map<String, dynamic> $params = <String, dynamic>{
       'rx_id': receiverId,
       'token': token,
@@ -196,7 +196,7 @@ class _$AdderlinkService extends AdderlinkService {
     int version = 6,
     String method = 'get_all_c_usb',
   }) {
-    final String $url = '/api';
+    final Uri $url = Uri.parse('/api');
     final Map<String, dynamic> $params = <String, dynamic>{
       'token': token,
       'v': version,
@@ -219,7 +219,7 @@ class _$AdderlinkService extends AdderlinkService {
     int version = 6,
     String method = 'connect_c_usb',
   }) {
-    final String $url = '/api';
+    final Uri $url = Uri.parse('/api');
     final Map<String, dynamic> $params = <String, dynamic>{
       'rx': receiverMac,
       'tx': transmitterMac,
@@ -244,7 +244,7 @@ class _$AdderlinkService extends AdderlinkService {
     int version = 6,
     String method = 'disconnect_c_usb',
   }) {
-    final String $url = '/api';
+    final Uri $url = Uri.parse('/api');
     final Map<String, dynamic> $params = <String, dynamic>{
       'mac': mac,
       'token': token,
@@ -268,7 +268,7 @@ class _$AdderlinkService extends AdderlinkService {
     int version = 7,
     String method = 'reboot_devices',
   }) {
-    final String $url = '/api';
+    final Uri $url = Uri.parse('/api');
     final Map<String, dynamic> $params = <String, dynamic>{
       'ids': ids,
       'token': token,
