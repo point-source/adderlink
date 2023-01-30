@@ -1,5 +1,6 @@
-import 'package:adderlink/adderlink.mapper.g.dart';
 import 'package:dart_mappable/dart_mappable.dart';
+
+part 'get_all_c_usb.mapper.dart';
 
 @MappableClass()
 class GetAllCUsbBody with GetAllCUsbBodyMappable {

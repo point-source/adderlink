@@ -1,3 +1,9 @@
+## 3.0.0
+
+- Update chopper to 6.0.0
+- Update dart_mappable (serialization) to 2.0.1 (stable)
+- Fix analysis
+
 ## 2.3.0
 
 - Accomodate breaking change in chopper lib on 5.2.0
@@ -6,6 +12,7 @@
 
 - Make more response fields optional/nullable
 - Return empty alif bodies when errors prevent body data from being received
+
 ## 2.1.0
 
 - Make optional response fields nullable

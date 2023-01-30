@@ -1,5 +1,6 @@
-import 'package:adderlink/adderlink.mapper.g.dart';
 import 'package:dart_mappable/dart_mappable.dart';
+
+part 'alif_error.mapper.dart';
 
 /// An error reported by an ALIF device
 @MappableClass()

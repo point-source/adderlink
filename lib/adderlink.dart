@@ -1,5 +1,11 @@
 /// A dart library for controlling Adderlink devices via network
+@MappableLib(
+  createCombinedContainer: true,
+  discoveryMode: DiscoveryMode.package,
+)
 library adderlink;
+
+import 'package:dart_mappable/dart_mappable.dart';
 
 export 'src/adderlink_base.dart';
 export 'src/alif_converter.dart';

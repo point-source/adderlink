@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:adderlink/adderlink.mapper.g.dart';
+import 'package:adderlink/adderlink.container.dart';
 import 'package:chopper/chopper.dart';
 import 'package:xml2json/xml2json.dart';
 
@@ -32,7 +32,7 @@ class AlifConverter implements Converter {
 
         final errors = (j.remove('errors') as Map?)
                 ?.values
-                .map((e) => Mapper.fromMap<AlifError>(e))
+                .map((e) => adderlinkContainer.fromMap<AlifError>(e))
                 .toList() ??
             [];
 
@@ -41,7 +41,7 @@ class AlifConverter implements Converter {
           timestamp: DateTime.parse(j.remove('timestamp')),
           isSuccessful: j.remove('success') == '1',
           errors: errors,
-          body: j.isEmpty ? null : Mapper.fromValue<InnerType>(j),
+          body: j.isEmpty ? null : adderlinkContainer.fromValue<InnerType>(j),
         );
 
         return response.copyWith<BodyType>(body: ar as BodyType);

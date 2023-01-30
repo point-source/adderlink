@@ -1,5 +1,6 @@
-import 'package:adderlink/adderlink.mapper.g.dart';
 import 'package:dart_mappable/dart_mappable.dart';
+
+part 'get_channels.mapper.dart';
 
 @MappableClass()
 class GetChannelsBody with GetChannelsBodyMappable {

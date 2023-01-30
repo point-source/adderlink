@@ -1,6 +1,6 @@
 import 'package:dart_mappable/dart_mappable.dart';
 
-import 'package:adderlink/adderlink.mapper.g.dart';
+part 'get_devices.mapper.dart';
 
 @MappableClass()
 class GetDevicesBody with GetDevicesBodyMappable {

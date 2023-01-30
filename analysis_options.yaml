@@ -2,8 +2,10 @@ include: package:lints/recommended.yaml
 
 analyzer:
   exclude:
-    - "**/*.g.dart"
+    - "**/*.mapper.dart"
     - "**/*.freezed.dart"
+    - "**/*.chopper.dart"
+    - "**/*.mapper.dart"
   plugins:
     - dart_code_metrics
 
@@ -13,7 +15,8 @@ linter:
 
 dart_code_metrics:
   exclude:
-    - "**/*.g.dart"
+    - "**/*.chopper.dart"
+    - "**/*.mapper.dart"
     - "**/*.freezed.dart"
   anti-patterns:
     - long-method

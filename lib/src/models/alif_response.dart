@@ -1,7 +1,8 @@
-import 'package:adderlink/adderlink.mapper.g.dart';
 import 'package:dart_mappable/dart_mappable.dart';
 
 import 'alif_error.dart';
+
+part 'alif_response.mapper.dart';
 
 /// A response object from an ALIF device
 @MappableClass()
