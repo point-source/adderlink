@@ -5,387 +5,427 @@
 
 part of 'get_channels.dart';
 
-class GetChannelsBodyMapper extends MapperBase<GetChannelsBody> {
-  static MapperContainer container = MapperContainer(
-    mappers: {GetChannelsBodyMapper()},
-  )..linkAll({ChannelsMapper.container});
+class GetChannelsBodyMapper extends ClassMapperBase<GetChannelsBody> {
+  GetChannelsBodyMapper._();
+  static GetChannelsBodyMapper? _instance;
+  static GetChannelsBodyMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = GetChannelsBodyMapper._());
+      ChannelsMapper.ensureInitialized();
+    }
+    return _instance!;
+  }
 
-  @override
-  GetChannelsBodyMapperElement createElement(MapperContainer container) {
-    return GetChannelsBodyMapperElement._(this, container);
+  static T _guard<T>(T Function(MapperContainer) fn) {
+    ensureInitialized();
+    return fn(MapperContainer.globals);
   }
 
   @override
-  String get id => 'GetChannelsBody';
+  final String id = 'GetChannelsBody';
 
-  static final fromMap = container.fromMap<GetChannelsBody>;
-  static final fromJson = container.fromJson<GetChannelsBody>;
-}
-
-class GetChannelsBodyMapperElement extends MapperElementBase<GetChannelsBody> {
-  GetChannelsBodyMapperElement._(super.mapper, super.container);
+  static String? _$page(GetChannelsBody v) => v.page;
+  static String? _$resultsPerPage(GetChannelsBody v) => v.resultsPerPage;
+  static String _$channelCount(GetChannelsBody v) => v.channelCount;
+  static Channels? _$channels(GetChannelsBody v) => v.channels;
 
   @override
-  Function get decoder => decode;
-  GetChannelsBody decode(dynamic v) =>
-      checkedType(v, (Map<String, dynamic> map) => fromMap(map));
-  GetChannelsBody fromMap(Map<String, dynamic> map) => GetChannelsBody(
-      page: container.$getOpt(map, 'page'),
-      resultsPerPage: container.$getOpt(map, 'results_per_page'),
-      channelCount: container.$get(map, 'count_channels'),
-      channels: container.$getOpt(map, 'channels'));
+  final Map<Symbol, Field<GetChannelsBody, dynamic>> fields = const {
+    #page: Field<GetChannelsBody, String?>('page', _$page, opt: true),
+    #resultsPerPage: Field<GetChannelsBody, String?>(
+        'resultsPerPage', _$resultsPerPage,
+        key: 'results_per_page', opt: true),
+    #channelCount: Field<GetChannelsBody, String>(
+        'channelCount', _$channelCount,
+        key: 'count_channels'),
+    #channels:
+        Field<GetChannelsBody, Channels?>('channels', _$channels, opt: true),
+  };
+
+  static GetChannelsBody _instantiate(DecodingData data) {
+    return GetChannelsBody(
+        page: data.get(#page),
+        resultsPerPage: data.get(#resultsPerPage),
+        channelCount: data.get(#channelCount),
+        channels: data.get(#channels));
+  }
 
   @override
-  Function get encoder => encode;
-  dynamic encode(GetChannelsBody v) => toMap(v);
-  Map<String, dynamic> toMap(GetChannelsBody g) => {
-        'page': container.$enc(g.page, 'page'),
-        'results_per_page': container.$enc(g.resultsPerPage, 'resultsPerPage'),
-        'count_channels': container.$enc(g.channelCount, 'channelCount'),
-        'channels': container.$enc(g.channels, 'channels')
-      };
+  final Function instantiate = _instantiate;
 
-  @override
-  String stringify(GetChannelsBody self) =>
-      'GetChannelsBody(page: ${container.asString(self.page)}, resultsPerPage: ${container.asString(self.resultsPerPage)}, channelCount: ${container.asString(self.channelCount)}, channels: ${container.asString(self.channels)})';
-  @override
-  int hash(GetChannelsBody self) =>
-      container.hash(self.page) ^
-      container.hash(self.resultsPerPage) ^
-      container.hash(self.channelCount) ^
-      container.hash(self.channels);
-  @override
-  bool equals(GetChannelsBody self, GetChannelsBody other) =>
-      container.isEqual(self.page, other.page) &&
-      container.isEqual(self.resultsPerPage, other.resultsPerPage) &&
-      container.isEqual(self.channelCount, other.channelCount) &&
-      container.isEqual(self.channels, other.channels);
+  static GetChannelsBody fromMap(Map<String, dynamic> map) {
+    return _guard((c) => c.fromMap<GetChannelsBody>(map));
+  }
+
+  static GetChannelsBody fromJson(String json) {
+    return _guard((c) => c.fromJson<GetChannelsBody>(json));
+  }
 }
 
 mixin GetChannelsBodyMappable {
-  String toJson() =>
-      GetChannelsBodyMapper.container.toJson(this as GetChannelsBody);
-  Map<String, dynamic> toMap() =>
-      GetChannelsBodyMapper.container.toMap(this as GetChannelsBody);
+  String toJson() {
+    return GetChannelsBodyMapper._guard(
+        (c) => c.toJson(this as GetChannelsBody));
+  }
+
+  Map<String, dynamic> toMap() {
+    return GetChannelsBodyMapper._guard(
+        (c) => c.toMap(this as GetChannelsBody));
+  }
+
   GetChannelsBodyCopyWith<GetChannelsBody, GetChannelsBody, GetChannelsBody>
       get copyWith => _GetChannelsBodyCopyWithImpl(
           this as GetChannelsBody, $identity, $identity);
   @override
-  String toString() => GetChannelsBodyMapper.container.asString(this);
+  String toString() {
+    return GetChannelsBodyMapper._guard((c) => c.asString(this));
+  }
+
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (runtimeType == other.runtimeType &&
-          GetChannelsBodyMapper.container.isEqual(this, other));
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (runtimeType == other.runtimeType &&
+            GetChannelsBodyMapper._guard((c) => c.isEqual(this, other)));
+  }
+
   @override
-  int get hashCode => GetChannelsBodyMapper.container.hash(this);
+  int get hashCode {
+    return GetChannelsBodyMapper._guard((c) => c.hash(this));
+  }
 }
 
 extension GetChannelsBodyValueCopy<$R, $Out extends GetChannelsBody>
     on ObjectCopyWith<$R, GetChannelsBody, $Out> {
-  GetChannelsBodyCopyWith<$R, GetChannelsBody, $Out> get asGetChannelsBody =>
-      base.as((v, t, t2) => _GetChannelsBodyCopyWithImpl(v, t, t2));
+  GetChannelsBodyCopyWith<$R, GetChannelsBody, $Out> get $asGetChannelsBody =>
+      $base.as((v, t, t2) => _GetChannelsBodyCopyWithImpl(v, t, t2));
 }
 
 typedef GetChannelsBodyCopyWithBound = GetChannelsBody;
 
 abstract class GetChannelsBodyCopyWith<$R, $In extends GetChannelsBody,
-    $Out extends GetChannelsBody> implements ObjectCopyWith<$R, $In, $Out> {
-  GetChannelsBodyCopyWith<$R2, $In, $Out2>
-      chain<$R2, $Out2 extends GetChannelsBody>(
-          Then<GetChannelsBody, $Out2> t, Then<$Out2, $R2> t2);
+    $Out extends GetChannelsBody> implements ClassCopyWith<$R, $In, $Out> {
   ChannelsCopyWith<$R, Channels, Channels>? get channels;
   $R call(
       {String? page,
       String? resultsPerPage,
       String? channelCount,
       Channels? channels});
+  GetChannelsBodyCopyWith<$R2, $In, $Out2>
+      $chain<$R2, $Out2 extends GetChannelsBody>(
+          Then<GetChannelsBody, $Out2> t, Then<$Out2, $R2> t2);
 }
 
 class _GetChannelsBodyCopyWithImpl<$R, $Out extends GetChannelsBody>
-    extends CopyWithBase<$R, GetChannelsBody, $Out>
+    extends ClassCopyWithBase<$R, GetChannelsBody, $Out>
     implements GetChannelsBodyCopyWith<$R, GetChannelsBody, $Out> {
   _GetChannelsBodyCopyWithImpl(super.value, super.then, super.then2);
-  @override
-  GetChannelsBodyCopyWith<$R2, GetChannelsBody, $Out2>
-      chain<$R2, $Out2 extends GetChannelsBody>(
-              Then<GetChannelsBody, $Out2> t, Then<$Out2, $R2> t2) =>
-          _GetChannelsBodyCopyWithImpl($value, t, t2);
 
   @override
+  late final ClassMapperBase<GetChannelsBody> $mapper =
+      GetChannelsBodyMapper.ensureInitialized();
+  @override
   ChannelsCopyWith<$R, Channels, Channels>? get channels =>
-      $value.channels?.copyWith.chain($identity, (v) => call(channels: v));
+      $value.channels?.copyWith.$chain($identity, (v) => call(channels: v));
   @override
   $R call(
           {Object? page = $none,
           Object? resultsPerPage = $none,
           String? channelCount,
           Object? channels = $none}) =>
-      $then(GetChannelsBody(
-          page: or(page, $value.page),
-          resultsPerPage: or(resultsPerPage, $value.resultsPerPage),
-          channelCount: channelCount ?? $value.channelCount,
-          channels: or(channels, $value.channels)));
-}
-
-class ChannelsMapper extends MapperBase<Channels> {
-  static MapperContainer container = MapperContainer(
-    mappers: {ChannelsMapper()},
-  )..linkAll({ChannelMapper.container});
+      $apply(FieldCopyWithData({
+        if (page != $none) #page: page,
+        if (resultsPerPage != $none) #resultsPerPage: resultsPerPage,
+        if (channelCount != null) #channelCount: channelCount,
+        if (channels != $none) #channels: channels
+      }));
+  @override
+  GetChannelsBody $make(CopyWithData data) => GetChannelsBody(
+      page: data.get(#page, or: $value.page),
+      resultsPerPage: data.get(#resultsPerPage, or: $value.resultsPerPage),
+      channelCount: data.get(#channelCount, or: $value.channelCount),
+      channels: data.get(#channels, or: $value.channels));
 
   @override
-  ChannelsMapperElement createElement(MapperContainer container) {
-    return ChannelsMapperElement._(this, container);
+  GetChannelsBodyCopyWith<$R2, GetChannelsBody, $Out2>
+      $chain<$R2, $Out2 extends GetChannelsBody>(
+              Then<GetChannelsBody, $Out2> t, Then<$Out2, $R2> t2) =>
+          _GetChannelsBodyCopyWithImpl($value, t, t2);
+}
+
+class ChannelsMapper extends ClassMapperBase<Channels> {
+  ChannelsMapper._();
+  static ChannelsMapper? _instance;
+  static ChannelsMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = ChannelsMapper._());
+      ChannelMapper.ensureInitialized();
+    }
+    return _instance!;
+  }
+
+  static T _guard<T>(T Function(MapperContainer) fn) {
+    ensureInitialized();
+    return fn(MapperContainer.globals);
   }
 
   @override
-  String get id => 'Channels';
+  final String id = 'Channels';
 
-  static final fromMap = container.fromMap<Channels>;
-  static final fromJson = container.fromJson<Channels>;
-}
-
-class ChannelsMapperElement extends MapperElementBase<Channels> {
-  ChannelsMapperElement._(super.mapper, super.container);
+  static List<Channel> _$channel(Channels v) => v.channel;
 
   @override
-  Function get decoder => decode;
-  Channels decode(dynamic v) =>
-      checkedType(v, (Map<String, dynamic> map) => fromMap(map));
-  Channels fromMap(Map<String, dynamic> map) =>
-      Channels(channel: container.$get(map, 'channel'));
+  final Map<Symbol, Field<Channels, dynamic>> fields = const {
+    #channel: Field<Channels, List<Channel>>('channel', _$channel),
+  };
+
+  static Channels _instantiate(DecodingData data) {
+    return Channels(channel: data.get(#channel));
+  }
 
   @override
-  Function get encoder => encode;
-  dynamic encode(Channels v) => toMap(v);
-  Map<String, dynamic> toMap(Channels c) =>
-      {'channel': container.$enc(c.channel, 'channel')};
+  final Function instantiate = _instantiate;
 
-  @override
-  String stringify(Channels self) =>
-      'Channels(channel: ${container.asString(self.channel)})';
-  @override
-  int hash(Channels self) => container.hash(self.channel);
-  @override
-  bool equals(Channels self, Channels other) =>
-      container.isEqual(self.channel, other.channel);
+  static Channels fromMap(Map<String, dynamic> map) {
+    return _guard((c) => c.fromMap<Channels>(map));
+  }
+
+  static Channels fromJson(String json) {
+    return _guard((c) => c.fromJson<Channels>(json));
+  }
 }
 
 mixin ChannelsMappable {
-  String toJson() => ChannelsMapper.container.toJson(this as Channels);
-  Map<String, dynamic> toMap() =>
-      ChannelsMapper.container.toMap(this as Channels);
+  String toJson() {
+    return ChannelsMapper._guard((c) => c.toJson(this as Channels));
+  }
+
+  Map<String, dynamic> toMap() {
+    return ChannelsMapper._guard((c) => c.toMap(this as Channels));
+  }
+
   ChannelsCopyWith<Channels, Channels, Channels> get copyWith =>
       _ChannelsCopyWithImpl(this as Channels, $identity, $identity);
   @override
-  String toString() => ChannelsMapper.container.asString(this);
+  String toString() {
+    return ChannelsMapper._guard((c) => c.asString(this));
+  }
+
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (runtimeType == other.runtimeType &&
-          ChannelsMapper.container.isEqual(this, other));
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (runtimeType == other.runtimeType &&
+            ChannelsMapper._guard((c) => c.isEqual(this, other)));
+  }
+
   @override
-  int get hashCode => ChannelsMapper.container.hash(this);
+  int get hashCode {
+    return ChannelsMapper._guard((c) => c.hash(this));
+  }
 }
 
 extension ChannelsValueCopy<$R, $Out extends Channels>
     on ObjectCopyWith<$R, Channels, $Out> {
-  ChannelsCopyWith<$R, Channels, $Out> get asChannels =>
-      base.as((v, t, t2) => _ChannelsCopyWithImpl(v, t, t2));
+  ChannelsCopyWith<$R, Channels, $Out> get $asChannels =>
+      $base.as((v, t, t2) => _ChannelsCopyWithImpl(v, t, t2));
 }
 
 typedef ChannelsCopyWithBound = Channels;
 
 abstract class ChannelsCopyWith<$R, $In extends Channels, $Out extends Channels>
-    implements ObjectCopyWith<$R, $In, $Out> {
-  ChannelsCopyWith<$R2, $In, $Out2> chain<$R2, $Out2 extends Channels>(
-      Then<Channels, $Out2> t, Then<$Out2, $R2> t2);
+    implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, Channel, ChannelCopyWith<$R, Channel, Channel>> get channel;
   $R call({List<Channel>? channel});
+  ChannelsCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2 extends Channels>(
+      Then<Channels, $Out2> t, Then<$Out2, $R2> t2);
 }
 
 class _ChannelsCopyWithImpl<$R, $Out extends Channels>
-    extends CopyWithBase<$R, Channels, $Out>
+    extends ClassCopyWithBase<$R, Channels, $Out>
     implements ChannelsCopyWith<$R, Channels, $Out> {
   _ChannelsCopyWithImpl(super.value, super.then, super.then2);
-  @override
-  ChannelsCopyWith<$R2, Channels, $Out2> chain<$R2, $Out2 extends Channels>(
-          Then<Channels, $Out2> t, Then<$Out2, $R2> t2) =>
-      _ChannelsCopyWithImpl($value, t, t2);
 
+  @override
+  late final ClassMapperBase<Channels> $mapper =
+      ChannelsMapper.ensureInitialized();
   @override
   ListCopyWith<$R, Channel, ChannelCopyWith<$R, Channel, Channel>>
       get channel => ListCopyWith(
           $value.channel,
-          (v, t) => v.copyWith.chain<$R, Channel>($identity, t),
+          (v, t) => v.copyWith.$chain<$R, Channel>($identity, t),
           (v) => call(channel: v));
   @override
   $R call({List<Channel>? channel}) =>
-      $then(Channels(channel: channel ?? $value.channel));
-}
-
-class ChannelMapper extends MapperBase<Channel> {
-  static MapperContainer container = MapperContainer(
-    mappers: {ChannelMapper()},
-  );
+      $apply(FieldCopyWithData({if (channel != null) #channel: channel}));
+  @override
+  Channels $make(CopyWithData data) =>
+      Channels(channel: data.get(#channel, or: $value.channel));
 
   @override
-  ChannelMapperElement createElement(MapperContainer container) {
-    return ChannelMapperElement._(this, container);
+  ChannelsCopyWith<$R2, Channels, $Out2> $chain<$R2, $Out2 extends Channels>(
+          Then<Channels, $Out2> t, Then<$Out2, $R2> t2) =>
+      _ChannelsCopyWithImpl($value, t, t2);
+}
+
+class ChannelMapper extends ClassMapperBase<Channel> {
+  ChannelMapper._();
+  static ChannelMapper? _instance;
+  static ChannelMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = ChannelMapper._());
+    }
+    return _instance!;
+  }
+
+  static T _guard<T>(T Function(MapperContainer) fn) {
+    ensureInitialized();
+    return fn(MapperContainer.globals);
   }
 
   @override
-  String get id => 'Channel';
+  final String id = 'Channel';
 
-  static final fromMap = container.fromMap<Channel>;
-  static final fromJson = container.fromJson<Channel>;
-}
-
-class ChannelMapperElement extends MapperElementBase<Channel> {
-  ChannelMapperElement._(super.mapper, super.container);
-
-  @override
-  Function get decoder => decode;
-  Channel decode(dynamic v) =>
-      checkedType(v, (Map<String, dynamic> map) => fromMap(map));
-  Channel fromMap(Map<String, dynamic> map) => Channel(
-      channelId: container.$get(map, 'c_id'),
-      name: container.$getOpt(map, 'c_name'),
-      description: container.$getOpt(map, 'c_description'),
-      location: container.$getOpt(map, 'c_location'),
-      channelType: container.$getOpt(map, 'c_channel_type'),
-      transmitterId: container.$getOpt(map, 'c_tx_id'),
-      favourite: container.$get(map, 'c_favourite'),
-      online: container.$get(map, 'channel_online'),
-      video1: container.$getOpt(map, 'c_video1'),
-      video1Head: container.$getOpt(map, 'c_video1_head'),
-      video2: container.$getOpt(map, 'c_video2'),
-      video2Head: container.$getOpt(map, 'c_video2_head'),
-      audio: container.$getOpt(map, 'c_audio'),
-      usb: container.$getOpt(map, 'c_usb'),
-      usb1: container.$getOpt(map, 'c_usb1'),
-      serial: container.$getOpt(map, 'c_serial'),
-      audio1: container.$getOpt(map, 'c_audio1'),
-      audio2: container.$getOpt(map, 'c_audio2'),
-      sensitive: container.$get(map, 'c_sensitive'),
-      viewButton: container.$get(map, 'view_button'),
-      sharedButton: container.$get(map, 'shared_button'),
-      controlButton: container.$get(map, 'control_button'),
-      exclusiveButton: container.$get(map, 'exclusive_button'));
+  static String _$channelId(Channel v) => v.channelId;
+  static String? _$name(Channel v) => v.name;
+  static String? _$description(Channel v) => v.description;
+  static String? _$location(Channel v) => v.location;
+  static String? _$channelType(Channel v) => v.channelType;
+  static String? _$transmitterId(Channel v) => v.transmitterId;
+  static String _$favourite(Channel v) => v.favourite;
+  static String _$online(Channel v) => v.online;
+  static String? _$video1(Channel v) => v.video1;
+  static String? _$video1Head(Channel v) => v.video1Head;
+  static String? _$video2(Channel v) => v.video2;
+  static String? _$video2Head(Channel v) => v.video2Head;
+  static String? _$audio(Channel v) => v.audio;
+  static String? _$usb(Channel v) => v.usb;
+  static String? _$usb1(Channel v) => v.usb1;
+  static String? _$serial(Channel v) => v.serial;
+  static String? _$audio1(Channel v) => v.audio1;
+  static String? _$audio2(Channel v) => v.audio2;
+  static String _$sensitive(Channel v) => v.sensitive;
+  static String _$viewButton(Channel v) => v.viewButton;
+  static String _$sharedButton(Channel v) => v.sharedButton;
+  static String _$controlButton(Channel v) => v.controlButton;
+  static String _$exclusiveButton(Channel v) => v.exclusiveButton;
 
   @override
-  Function get encoder => encode;
-  dynamic encode(Channel v) => toMap(v);
-  Map<String, dynamic> toMap(Channel c) => {
-        'c_id': container.$enc(c.channelId, 'channelId'),
-        'c_name': container.$enc(c.name, 'name'),
-        'c_description': container.$enc(c.description, 'description'),
-        'c_location': container.$enc(c.location, 'location'),
-        'c_channel_type': container.$enc(c.channelType, 'channelType'),
-        'c_tx_id': container.$enc(c.transmitterId, 'transmitterId'),
-        'c_favourite': container.$enc(c.favourite, 'favourite'),
-        'channel_online': container.$enc(c.online, 'online'),
-        'c_video1': container.$enc(c.video1, 'video1'),
-        'c_video1_head': container.$enc(c.video1Head, 'video1Head'),
-        'c_video2': container.$enc(c.video2, 'video2'),
-        'c_video2_head': container.$enc(c.video2Head, 'video2Head'),
-        'c_audio': container.$enc(c.audio, 'audio'),
-        'c_usb': container.$enc(c.usb, 'usb'),
-        'c_usb1': container.$enc(c.usb1, 'usb1'),
-        'c_serial': container.$enc(c.serial, 'serial'),
-        'c_audio1': container.$enc(c.audio1, 'audio1'),
-        'c_audio2': container.$enc(c.audio2, 'audio2'),
-        'c_sensitive': container.$enc(c.sensitive, 'sensitive'),
-        'view_button': container.$enc(c.viewButton, 'viewButton'),
-        'shared_button': container.$enc(c.sharedButton, 'sharedButton'),
-        'control_button': container.$enc(c.controlButton, 'controlButton'),
-        'exclusive_button': container.$enc(c.exclusiveButton, 'exclusiveButton')
-      };
+  final Map<Symbol, Field<Channel, dynamic>> fields = const {
+    #channelId: Field<Channel, String>('channelId', _$channelId, key: 'c_id'),
+    #name: Field<Channel, String?>('name', _$name, key: 'c_name'),
+    #description: Field<Channel, String?>('description', _$description,
+        key: 'c_description'),
+    #location:
+        Field<Channel, String?>('location', _$location, key: 'c_location'),
+    #channelType: Field<Channel, String?>('channelType', _$channelType,
+        key: 'c_channel_type'),
+    #transmitterId: Field<Channel, String?>('transmitterId', _$transmitterId,
+        key: 'c_tx_id'),
+    #favourite:
+        Field<Channel, String>('favourite', _$favourite, key: 'c_favourite'),
+    #online: Field<Channel, String>('online', _$online, key: 'channel_online'),
+    #video1: Field<Channel, String?>('video1', _$video1, key: 'c_video1'),
+    #video1Head: Field<Channel, String?>('video1Head', _$video1Head,
+        key: 'c_video1_head'),
+    #video2: Field<Channel, String?>('video2', _$video2, key: 'c_video2'),
+    #video2Head: Field<Channel, String?>('video2Head', _$video2Head,
+        key: 'c_video2_head'),
+    #audio: Field<Channel, String?>('audio', _$audio, key: 'c_audio'),
+    #usb: Field<Channel, String?>('usb', _$usb, key: 'c_usb'),
+    #usb1: Field<Channel, String?>('usb1', _$usb1, key: 'c_usb1'),
+    #serial: Field<Channel, String?>('serial', _$serial, key: 'c_serial'),
+    #audio1: Field<Channel, String?>('audio1', _$audio1, key: 'c_audio1'),
+    #audio2: Field<Channel, String?>('audio2', _$audio2, key: 'c_audio2'),
+    #sensitive:
+        Field<Channel, String>('sensitive', _$sensitive, key: 'c_sensitive'),
+    #viewButton:
+        Field<Channel, String>('viewButton', _$viewButton, key: 'view_button'),
+    #sharedButton: Field<Channel, String>('sharedButton', _$sharedButton,
+        key: 'shared_button'),
+    #controlButton: Field<Channel, String>('controlButton', _$controlButton,
+        key: 'control_button'),
+    #exclusiveButton: Field<Channel, String>(
+        'exclusiveButton', _$exclusiveButton,
+        key: 'exclusive_button'),
+  };
+
+  static Channel _instantiate(DecodingData data) {
+    return Channel(
+        channelId: data.get(#channelId),
+        name: data.get(#name),
+        description: data.get(#description),
+        location: data.get(#location),
+        channelType: data.get(#channelType),
+        transmitterId: data.get(#transmitterId),
+        favourite: data.get(#favourite),
+        online: data.get(#online),
+        video1: data.get(#video1),
+        video1Head: data.get(#video1Head),
+        video2: data.get(#video2),
+        video2Head: data.get(#video2Head),
+        audio: data.get(#audio),
+        usb: data.get(#usb),
+        usb1: data.get(#usb1),
+        serial: data.get(#serial),
+        audio1: data.get(#audio1),
+        audio2: data.get(#audio2),
+        sensitive: data.get(#sensitive),
+        viewButton: data.get(#viewButton),
+        sharedButton: data.get(#sharedButton),
+        controlButton: data.get(#controlButton),
+        exclusiveButton: data.get(#exclusiveButton));
+  }
 
   @override
-  String stringify(Channel self) =>
-      'Channel(channelId: ${container.asString(self.channelId)}, name: ${container.asString(self.name)}, description: ${container.asString(self.description)}, location: ${container.asString(self.location)}, channelType: ${container.asString(self.channelType)}, transmitterId: ${container.asString(self.transmitterId)}, favourite: ${container.asString(self.favourite)}, online: ${container.asString(self.online)}, video1: ${container.asString(self.video1)}, video1Head: ${container.asString(self.video1Head)}, video2: ${container.asString(self.video2)}, video2Head: ${container.asString(self.video2Head)}, audio: ${container.asString(self.audio)}, usb: ${container.asString(self.usb)}, usb1: ${container.asString(self.usb1)}, serial: ${container.asString(self.serial)}, audio1: ${container.asString(self.audio1)}, audio2: ${container.asString(self.audio2)}, sensitive: ${container.asString(self.sensitive)}, viewButton: ${container.asString(self.viewButton)}, sharedButton: ${container.asString(self.sharedButton)}, controlButton: ${container.asString(self.controlButton)}, exclusiveButton: ${container.asString(self.exclusiveButton)})';
-  @override
-  int hash(Channel self) =>
-      container.hash(self.channelId) ^
-      container.hash(self.name) ^
-      container.hash(self.description) ^
-      container.hash(self.location) ^
-      container.hash(self.channelType) ^
-      container.hash(self.transmitterId) ^
-      container.hash(self.favourite) ^
-      container.hash(self.online) ^
-      container.hash(self.video1) ^
-      container.hash(self.video1Head) ^
-      container.hash(self.video2) ^
-      container.hash(self.video2Head) ^
-      container.hash(self.audio) ^
-      container.hash(self.usb) ^
-      container.hash(self.usb1) ^
-      container.hash(self.serial) ^
-      container.hash(self.audio1) ^
-      container.hash(self.audio2) ^
-      container.hash(self.sensitive) ^
-      container.hash(self.viewButton) ^
-      container.hash(self.sharedButton) ^
-      container.hash(self.controlButton) ^
-      container.hash(self.exclusiveButton);
-  @override
-  bool equals(Channel self, Channel other) =>
-      container.isEqual(self.channelId, other.channelId) &&
-      container.isEqual(self.name, other.name) &&
-      container.isEqual(self.description, other.description) &&
-      container.isEqual(self.location, other.location) &&
-      container.isEqual(self.channelType, other.channelType) &&
-      container.isEqual(self.transmitterId, other.transmitterId) &&
-      container.isEqual(self.favourite, other.favourite) &&
-      container.isEqual(self.online, other.online) &&
-      container.isEqual(self.video1, other.video1) &&
-      container.isEqual(self.video1Head, other.video1Head) &&
-      container.isEqual(self.video2, other.video2) &&
-      container.isEqual(self.video2Head, other.video2Head) &&
-      container.isEqual(self.audio, other.audio) &&
-      container.isEqual(self.usb, other.usb) &&
-      container.isEqual(self.usb1, other.usb1) &&
-      container.isEqual(self.serial, other.serial) &&
-      container.isEqual(self.audio1, other.audio1) &&
-      container.isEqual(self.audio2, other.audio2) &&
-      container.isEqual(self.sensitive, other.sensitive) &&
-      container.isEqual(self.viewButton, other.viewButton) &&
-      container.isEqual(self.sharedButton, other.sharedButton) &&
-      container.isEqual(self.controlButton, other.controlButton) &&
-      container.isEqual(self.exclusiveButton, other.exclusiveButton);
+  final Function instantiate = _instantiate;
+
+  static Channel fromMap(Map<String, dynamic> map) {
+    return _guard((c) => c.fromMap<Channel>(map));
+  }
+
+  static Channel fromJson(String json) {
+    return _guard((c) => c.fromJson<Channel>(json));
+  }
 }
 
 mixin ChannelMappable {
-  String toJson() => ChannelMapper.container.toJson(this as Channel);
-  Map<String, dynamic> toMap() =>
-      ChannelMapper.container.toMap(this as Channel);
+  String toJson() {
+    return ChannelMapper._guard((c) => c.toJson(this as Channel));
+  }
+
+  Map<String, dynamic> toMap() {
+    return ChannelMapper._guard((c) => c.toMap(this as Channel));
+  }
+
   ChannelCopyWith<Channel, Channel, Channel> get copyWith =>
       _ChannelCopyWithImpl(this as Channel, $identity, $identity);
   @override
-  String toString() => ChannelMapper.container.asString(this);
+  String toString() {
+    return ChannelMapper._guard((c) => c.asString(this));
+  }
+
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (runtimeType == other.runtimeType &&
-          ChannelMapper.container.isEqual(this, other));
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (runtimeType == other.runtimeType &&
+            ChannelMapper._guard((c) => c.isEqual(this, other)));
+  }
+
   @override
-  int get hashCode => ChannelMapper.container.hash(this);
+  int get hashCode {
+    return ChannelMapper._guard((c) => c.hash(this));
+  }
 }
 
 extension ChannelValueCopy<$R, $Out extends Channel>
     on ObjectCopyWith<$R, Channel, $Out> {
-  ChannelCopyWith<$R, Channel, $Out> get asChannel =>
-      base.as((v, t, t2) => _ChannelCopyWithImpl(v, t, t2));
+  ChannelCopyWith<$R, Channel, $Out> get $asChannel =>
+      $base.as((v, t, t2) => _ChannelCopyWithImpl(v, t, t2));
 }
 
 typedef ChannelCopyWithBound = Channel;
 
 abstract class ChannelCopyWith<$R, $In extends Channel, $Out extends Channel>
-    implements ObjectCopyWith<$R, $In, $Out> {
-  ChannelCopyWith<$R2, $In, $Out2> chain<$R2, $Out2 extends Channel>(
-      Then<Channel, $Out2> t, Then<$Out2, $R2> t2);
+    implements ClassCopyWith<$R, $In, $Out> {
   $R call(
       {String? channelId,
       String? name,
@@ -410,17 +450,18 @@ abstract class ChannelCopyWith<$R, $In extends Channel, $Out extends Channel>
       String? sharedButton,
       String? controlButton,
       String? exclusiveButton});
+  ChannelCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2 extends Channel>(
+      Then<Channel, $Out2> t, Then<$Out2, $R2> t2);
 }
 
 class _ChannelCopyWithImpl<$R, $Out extends Channel>
-    extends CopyWithBase<$R, Channel, $Out>
+    extends ClassCopyWithBase<$R, Channel, $Out>
     implements ChannelCopyWith<$R, Channel, $Out> {
   _ChannelCopyWithImpl(super.value, super.then, super.then2);
-  @override
-  ChannelCopyWith<$R2, Channel, $Out2> chain<$R2, $Out2 extends Channel>(
-          Then<Channel, $Out2> t, Then<$Out2, $R2> t2) =>
-      _ChannelCopyWithImpl($value, t, t2);
 
+  @override
+  late final ClassMapperBase<Channel> $mapper =
+      ChannelMapper.ensureInitialized();
   @override
   $R call(
           {String? channelId,
@@ -446,28 +487,59 @@ class _ChannelCopyWithImpl<$R, $Out extends Channel>
           String? sharedButton,
           String? controlButton,
           String? exclusiveButton}) =>
-      $then(Channel(
-          channelId: channelId ?? $value.channelId,
-          name: or(name, $value.name),
-          description: or(description, $value.description),
-          location: or(location, $value.location),
-          channelType: or(channelType, $value.channelType),
-          transmitterId: or(transmitterId, $value.transmitterId),
-          favourite: favourite ?? $value.favourite,
-          online: online ?? $value.online,
-          video1: or(video1, $value.video1),
-          video1Head: or(video1Head, $value.video1Head),
-          video2: or(video2, $value.video2),
-          video2Head: or(video2Head, $value.video2Head),
-          audio: or(audio, $value.audio),
-          usb: or(usb, $value.usb),
-          usb1: or(usb1, $value.usb1),
-          serial: or(serial, $value.serial),
-          audio1: or(audio1, $value.audio1),
-          audio2: or(audio2, $value.audio2),
-          sensitive: sensitive ?? $value.sensitive,
-          viewButton: viewButton ?? $value.viewButton,
-          sharedButton: sharedButton ?? $value.sharedButton,
-          controlButton: controlButton ?? $value.controlButton,
-          exclusiveButton: exclusiveButton ?? $value.exclusiveButton));
+      $apply(FieldCopyWithData({
+        if (channelId != null) #channelId: channelId,
+        if (name != $none) #name: name,
+        if (description != $none) #description: description,
+        if (location != $none) #location: location,
+        if (channelType != $none) #channelType: channelType,
+        if (transmitterId != $none) #transmitterId: transmitterId,
+        if (favourite != null) #favourite: favourite,
+        if (online != null) #online: online,
+        if (video1 != $none) #video1: video1,
+        if (video1Head != $none) #video1Head: video1Head,
+        if (video2 != $none) #video2: video2,
+        if (video2Head != $none) #video2Head: video2Head,
+        if (audio != $none) #audio: audio,
+        if (usb != $none) #usb: usb,
+        if (usb1 != $none) #usb1: usb1,
+        if (serial != $none) #serial: serial,
+        if (audio1 != $none) #audio1: audio1,
+        if (audio2 != $none) #audio2: audio2,
+        if (sensitive != null) #sensitive: sensitive,
+        if (viewButton != null) #viewButton: viewButton,
+        if (sharedButton != null) #sharedButton: sharedButton,
+        if (controlButton != null) #controlButton: controlButton,
+        if (exclusiveButton != null) #exclusiveButton: exclusiveButton
+      }));
+  @override
+  Channel $make(CopyWithData data) => Channel(
+      channelId: data.get(#channelId, or: $value.channelId),
+      name: data.get(#name, or: $value.name),
+      description: data.get(#description, or: $value.description),
+      location: data.get(#location, or: $value.location),
+      channelType: data.get(#channelType, or: $value.channelType),
+      transmitterId: data.get(#transmitterId, or: $value.transmitterId),
+      favourite: data.get(#favourite, or: $value.favourite),
+      online: data.get(#online, or: $value.online),
+      video1: data.get(#video1, or: $value.video1),
+      video1Head: data.get(#video1Head, or: $value.video1Head),
+      video2: data.get(#video2, or: $value.video2),
+      video2Head: data.get(#video2Head, or: $value.video2Head),
+      audio: data.get(#audio, or: $value.audio),
+      usb: data.get(#usb, or: $value.usb),
+      usb1: data.get(#usb1, or: $value.usb1),
+      serial: data.get(#serial, or: $value.serial),
+      audio1: data.get(#audio1, or: $value.audio1),
+      audio2: data.get(#audio2, or: $value.audio2),
+      sensitive: data.get(#sensitive, or: $value.sensitive),
+      viewButton: data.get(#viewButton, or: $value.viewButton),
+      sharedButton: data.get(#sharedButton, or: $value.sharedButton),
+      controlButton: data.get(#controlButton, or: $value.controlButton),
+      exclusiveButton: data.get(#exclusiveButton, or: $value.exclusiveButton));
+
+  @override
+  ChannelCopyWith<$R2, Channel, $Out2> $chain<$R2, $Out2 extends Channel>(
+          Then<Channel, $Out2> t, Then<$Out2, $R2> t2) =>
+      _ChannelCopyWithImpl($value, t, t2);
 }

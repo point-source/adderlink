@@ -5,96 +5,111 @@
 
 part of 'alif_error.dart';
 
-class AlifErrorMapper extends MapperBase<AlifError> {
-  static MapperContainer container = MapperContainer(
-    mappers: {AlifErrorMapper()},
-  );
+class AlifErrorMapper extends ClassMapperBase<AlifError> {
+  AlifErrorMapper._();
+  static AlifErrorMapper? _instance;
+  static AlifErrorMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = AlifErrorMapper._());
+    }
+    return _instance!;
+  }
 
-  @override
-  AlifErrorMapperElement createElement(MapperContainer container) {
-    return AlifErrorMapperElement._(this, container);
+  static T _guard<T>(T Function(MapperContainer) fn) {
+    ensureInitialized();
+    return fn(MapperContainer.globals);
   }
 
   @override
-  String get id => 'AlifError';
+  final String id = 'AlifError';
 
-  static final fromMap = container.fromMap<AlifError>;
-  static final fromJson = container.fromJson<AlifError>;
-}
-
-class AlifErrorMapperElement extends MapperElementBase<AlifError> {
-  AlifErrorMapperElement._(super.mapper, super.container);
+  static int _$code(AlifError v) => v.code;
+  static String _$msg(AlifError v) => v.msg;
 
   @override
-  Function get decoder => decode;
-  AlifError decode(dynamic v) =>
-      checkedType(v, (Map<String, dynamic> map) => fromMap(map));
-  AlifError fromMap(Map<String, dynamic> map) => AlifError(
-      code: container.$get(map, 'code'),
-      msg: container.$getOpt(map, 'msg') ?? '');
+  final Map<Symbol, Field<AlifError, dynamic>> fields = const {
+    #code: Field<AlifError, int>('code', _$code),
+    #msg: Field<AlifError, String>('msg', _$msg, opt: true, def: ''),
+  };
+
+  static AlifError _instantiate(DecodingData data) {
+    return AlifError(code: data.get(#code), msg: data.get(#msg));
+  }
 
   @override
-  Function get encoder => encode;
-  dynamic encode(AlifError v) => toMap(v);
-  Map<String, dynamic> toMap(AlifError a) => {
-        'code': container.$enc(a.code, 'code'),
-        'msg': container.$enc(a.msg, 'msg')
-      };
+  final Function instantiate = _instantiate;
 
-  @override
-  String stringify(AlifError self) =>
-      'AlifError(code: ${container.asString(self.code)}, msg: ${container.asString(self.msg)})';
-  @override
-  int hash(AlifError self) =>
-      container.hash(self.code) ^ container.hash(self.msg);
-  @override
-  bool equals(AlifError self, AlifError other) =>
-      container.isEqual(self.code, other.code) &&
-      container.isEqual(self.msg, other.msg);
+  static AlifError fromMap(Map<String, dynamic> map) {
+    return _guard((c) => c.fromMap<AlifError>(map));
+  }
+
+  static AlifError fromJson(String json) {
+    return _guard((c) => c.fromJson<AlifError>(json));
+  }
 }
 
 mixin AlifErrorMappable {
-  String toJson() => AlifErrorMapper.container.toJson(this as AlifError);
-  Map<String, dynamic> toMap() =>
-      AlifErrorMapper.container.toMap(this as AlifError);
+  String toJson() {
+    return AlifErrorMapper._guard((c) => c.toJson(this as AlifError));
+  }
+
+  Map<String, dynamic> toMap() {
+    return AlifErrorMapper._guard((c) => c.toMap(this as AlifError));
+  }
+
   AlifErrorCopyWith<AlifError, AlifError, AlifError> get copyWith =>
       _AlifErrorCopyWithImpl(this as AlifError, $identity, $identity);
   @override
-  String toString() => AlifErrorMapper.container.asString(this);
+  String toString() {
+    return AlifErrorMapper._guard((c) => c.asString(this));
+  }
+
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (runtimeType == other.runtimeType &&
-          AlifErrorMapper.container.isEqual(this, other));
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (runtimeType == other.runtimeType &&
+            AlifErrorMapper._guard((c) => c.isEqual(this, other)));
+  }
+
   @override
-  int get hashCode => AlifErrorMapper.container.hash(this);
+  int get hashCode {
+    return AlifErrorMapper._guard((c) => c.hash(this));
+  }
 }
 
 extension AlifErrorValueCopy<$R, $Out extends AlifError>
     on ObjectCopyWith<$R, AlifError, $Out> {
-  AlifErrorCopyWith<$R, AlifError, $Out> get asAlifError =>
-      base.as((v, t, t2) => _AlifErrorCopyWithImpl(v, t, t2));
+  AlifErrorCopyWith<$R, AlifError, $Out> get $asAlifError =>
+      $base.as((v, t, t2) => _AlifErrorCopyWithImpl(v, t, t2));
 }
 
 typedef AlifErrorCopyWithBound = AlifError;
 
 abstract class AlifErrorCopyWith<$R, $In extends AlifError,
-    $Out extends AlifError> implements ObjectCopyWith<$R, $In, $Out> {
-  AlifErrorCopyWith<$R2, $In, $Out2> chain<$R2, $Out2 extends AlifError>(
-      Then<AlifError, $Out2> t, Then<$Out2, $R2> t2);
+    $Out extends AlifError> implements ClassCopyWith<$R, $In, $Out> {
   $R call({int? code, String? msg});
+  AlifErrorCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2 extends AlifError>(
+      Then<AlifError, $Out2> t, Then<$Out2, $R2> t2);
 }
 
 class _AlifErrorCopyWithImpl<$R, $Out extends AlifError>
-    extends CopyWithBase<$R, AlifError, $Out>
+    extends ClassCopyWithBase<$R, AlifError, $Out>
     implements AlifErrorCopyWith<$R, AlifError, $Out> {
   _AlifErrorCopyWithImpl(super.value, super.then, super.then2);
-  @override
-  AlifErrorCopyWith<$R2, AlifError, $Out2> chain<$R2, $Out2 extends AlifError>(
-          Then<AlifError, $Out2> t, Then<$Out2, $R2> t2) =>
-      _AlifErrorCopyWithImpl($value, t, t2);
 
   @override
-  $R call({int? code, String? msg}) =>
-      $then(AlifError(code: code ?? $value.code, msg: msg ?? $value.msg));
+  late final ClassMapperBase<AlifError> $mapper =
+      AlifErrorMapper.ensureInitialized();
+  @override
+  $R call({int? code, String? msg}) => $apply(FieldCopyWithData(
+      {if (code != null) #code: code, if (msg != null) #msg: msg}));
+  @override
+  AlifError $make(CopyWithData data) => AlifError(
+      code: data.get(#code, or: $value.code),
+      msg: data.get(#msg, or: $value.msg));
+
+  @override
+  AlifErrorCopyWith<$R2, AlifError, $Out2> $chain<$R2, $Out2 extends AlifError>(
+          Then<AlifError, $Out2> t, Then<$Out2, $R2> t2) =>
+      _AlifErrorCopyWithImpl($value, t, t2);
 }

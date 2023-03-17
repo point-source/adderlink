@@ -1,3 +1,6 @@
+## 4.0.0-dev.0
+- Update dart_mappable to 3.0.0-dev.1
+
 ## 3.0.0
 
 - Update chopper to 6.0.0

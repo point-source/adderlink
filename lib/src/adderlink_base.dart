@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:adderlink/adderlink.init.dart';
 import 'package:adderlink/src/models/body/get_all_c_usb.dart';
 import 'package:adderlink/src/models/body/get_channels.dart';
 import 'package:adderlink/src/models/body/login.dart';
@@ -15,8 +16,11 @@ part "adderlink_base.chopper.dart";
 abstract class AdderlinkService extends ChopperService {
   /// Creates an instance of the Adderlink service with an optionally
   /// provided ChopperClient
-  static AdderlinkService create([ChopperClient? client]) =>
-      _$AdderlinkService(client);
+  static AdderlinkService create([ChopperClient? client]) {
+    initializeMappers();
+
+    return _$AdderlinkService(client);
+  }
 
   /// Requires a valid AIM user's login credentials to be presented in
   /// the first request. The API will return an authentication code, which must be

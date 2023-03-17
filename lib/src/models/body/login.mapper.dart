@@ -5,90 +5,108 @@
 
 part of 'login.dart';
 
-class LoginBodyMapper extends MapperBase<LoginBody> {
-  static MapperContainer container = MapperContainer(
-    mappers: {LoginBodyMapper()},
-  );
+class LoginBodyMapper extends ClassMapperBase<LoginBody> {
+  LoginBodyMapper._();
+  static LoginBodyMapper? _instance;
+  static LoginBodyMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = LoginBodyMapper._());
+    }
+    return _instance!;
+  }
 
-  @override
-  LoginBodyMapperElement createElement(MapperContainer container) {
-    return LoginBodyMapperElement._(this, container);
+  static T _guard<T>(T Function(MapperContainer) fn) {
+    ensureInitialized();
+    return fn(MapperContainer.globals);
   }
 
   @override
-  String get id => 'LoginBody';
+  final String id = 'LoginBody';
 
-  static final fromMap = container.fromMap<LoginBody>;
-  static final fromJson = container.fromJson<LoginBody>;
-}
-
-class LoginBodyMapperElement extends MapperElementBase<LoginBody> {
-  LoginBodyMapperElement._(super.mapper, super.container);
+  static String _$token(LoginBody v) => v.token;
 
   @override
-  Function get decoder => decode;
-  LoginBody decode(dynamic v) =>
-      checkedType(v, (Map<String, dynamic> map) => fromMap(map));
-  LoginBody fromMap(Map<String, dynamic> map) =>
-      LoginBody(token: container.$get(map, 'token'));
+  final Map<Symbol, Field<LoginBody, dynamic>> fields = const {
+    #token: Field<LoginBody, String>('token', _$token),
+  };
+
+  static LoginBody _instantiate(DecodingData data) {
+    return LoginBody(token: data.get(#token));
+  }
 
   @override
-  Function get encoder => encode;
-  dynamic encode(LoginBody v) => toMap(v);
-  Map<String, dynamic> toMap(LoginBody l) =>
-      {'token': container.$enc(l.token, 'token')};
+  final Function instantiate = _instantiate;
 
-  @override
-  String stringify(LoginBody self) =>
-      'LoginBody(token: ${container.asString(self.token)})';
-  @override
-  int hash(LoginBody self) => container.hash(self.token);
-  @override
-  bool equals(LoginBody self, LoginBody other) =>
-      container.isEqual(self.token, other.token);
+  static LoginBody fromMap(Map<String, dynamic> map) {
+    return _guard((c) => c.fromMap<LoginBody>(map));
+  }
+
+  static LoginBody fromJson(String json) {
+    return _guard((c) => c.fromJson<LoginBody>(json));
+  }
 }
 
 mixin LoginBodyMappable {
-  String toJson() => LoginBodyMapper.container.toJson(this as LoginBody);
-  Map<String, dynamic> toMap() =>
-      LoginBodyMapper.container.toMap(this as LoginBody);
+  String toJson() {
+    return LoginBodyMapper._guard((c) => c.toJson(this as LoginBody));
+  }
+
+  Map<String, dynamic> toMap() {
+    return LoginBodyMapper._guard((c) => c.toMap(this as LoginBody));
+  }
+
   LoginBodyCopyWith<LoginBody, LoginBody, LoginBody> get copyWith =>
       _LoginBodyCopyWithImpl(this as LoginBody, $identity, $identity);
   @override
-  String toString() => LoginBodyMapper.container.asString(this);
+  String toString() {
+    return LoginBodyMapper._guard((c) => c.asString(this));
+  }
+
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (runtimeType == other.runtimeType &&
-          LoginBodyMapper.container.isEqual(this, other));
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (runtimeType == other.runtimeType &&
+            LoginBodyMapper._guard((c) => c.isEqual(this, other)));
+  }
+
   @override
-  int get hashCode => LoginBodyMapper.container.hash(this);
+  int get hashCode {
+    return LoginBodyMapper._guard((c) => c.hash(this));
+  }
 }
 
 extension LoginBodyValueCopy<$R, $Out extends LoginBody>
     on ObjectCopyWith<$R, LoginBody, $Out> {
-  LoginBodyCopyWith<$R, LoginBody, $Out> get asLoginBody =>
-      base.as((v, t, t2) => _LoginBodyCopyWithImpl(v, t, t2));
+  LoginBodyCopyWith<$R, LoginBody, $Out> get $asLoginBody =>
+      $base.as((v, t, t2) => _LoginBodyCopyWithImpl(v, t, t2));
 }
 
 typedef LoginBodyCopyWithBound = LoginBody;
 
 abstract class LoginBodyCopyWith<$R, $In extends LoginBody,
-    $Out extends LoginBody> implements ObjectCopyWith<$R, $In, $Out> {
-  LoginBodyCopyWith<$R2, $In, $Out2> chain<$R2, $Out2 extends LoginBody>(
-      Then<LoginBody, $Out2> t, Then<$Out2, $R2> t2);
+    $Out extends LoginBody> implements ClassCopyWith<$R, $In, $Out> {
   $R call({String? token});
+  LoginBodyCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2 extends LoginBody>(
+      Then<LoginBody, $Out2> t, Then<$Out2, $R2> t2);
 }
 
 class _LoginBodyCopyWithImpl<$R, $Out extends LoginBody>
-    extends CopyWithBase<$R, LoginBody, $Out>
+    extends ClassCopyWithBase<$R, LoginBody, $Out>
     implements LoginBodyCopyWith<$R, LoginBody, $Out> {
   _LoginBodyCopyWithImpl(super.value, super.then, super.then2);
-  @override
-  LoginBodyCopyWith<$R2, LoginBody, $Out2> chain<$R2, $Out2 extends LoginBody>(
-          Then<LoginBody, $Out2> t, Then<$Out2, $R2> t2) =>
-      _LoginBodyCopyWithImpl($value, t, t2);
 
   @override
-  $R call({String? token}) => $then(LoginBody(token: token ?? $value.token));
+  late final ClassMapperBase<LoginBody> $mapper =
+      LoginBodyMapper.ensureInitialized();
+  @override
+  $R call({String? token}) =>
+      $apply(FieldCopyWithData({if (token != null) #token: token}));
+  @override
+  LoginBody $make(CopyWithData data) =>
+      LoginBody(token: data.get(#token, or: $value.token));
+
+  @override
+  LoginBodyCopyWith<$R2, LoginBody, $Out2> $chain<$R2, $Out2 extends LoginBody>(
+          Then<LoginBody, $Out2> t, Then<$Out2, $R2> t2) =>
+      _LoginBodyCopyWithImpl($value, t, t2);
 }
