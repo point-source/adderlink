@@ -7,6 +7,7 @@ part of 'get_devices.dart';
 
 class GetDevicesBodyMapper extends ClassMapperBase<GetDevicesBody> {
   GetDevicesBodyMapper._();
+
   static GetDevicesBodyMapper? _instance;
   static GetDevicesBodyMapper ensureInitialized() {
     if (_instance == null) {
@@ -25,31 +26,36 @@ class GetDevicesBodyMapper extends ClassMapperBase<GetDevicesBody> {
   final String id = 'GetDevicesBody';
 
   static String _$page(GetDevicesBody v) => v.page;
+  static const Field<GetDevicesBody, String> _f$page = Field('page', _$page);
   static String _$resultsPerPage(GetDevicesBody v) => v.resultsPerPage;
+  static const Field<GetDevicesBody, String> _f$resultsPerPage =
+      Field('resultsPerPage', _$resultsPerPage, key: 'results_per_page');
   static String _$totalDevices(GetDevicesBody v) => v.totalDevices;
+  static const Field<GetDevicesBody, String> _f$totalDevices =
+      Field('totalDevices', _$totalDevices, key: 'total_devices');
   static String _$countDevices(GetDevicesBody v) => v.countDevices;
+  static const Field<GetDevicesBody, String> _f$countDevices =
+      Field('countDevices', _$countDevices, key: 'count_devices');
   static Devices _$devices(GetDevicesBody v) => v.devices;
+  static const Field<GetDevicesBody, Devices> _f$devices =
+      Field('devices', _$devices);
 
   @override
   final Map<Symbol, Field<GetDevicesBody, dynamic>> fields = const {
-    #page: Field<GetDevicesBody, String>('page', _$page),
-    #resultsPerPage: Field<GetDevicesBody, String>(
-        'resultsPerPage', _$resultsPerPage,
-        key: 'results_per_page'),
-    #totalDevices: Field<GetDevicesBody, String>('totalDevices', _$totalDevices,
-        key: 'total_devices'),
-    #countDevices: Field<GetDevicesBody, String>('countDevices', _$countDevices,
-        key: 'count_devices'),
-    #devices: Field<GetDevicesBody, Devices>('devices', _$devices),
+    #page: _f$page,
+    #resultsPerPage: _f$resultsPerPage,
+    #totalDevices: _f$totalDevices,
+    #countDevices: _f$countDevices,
+    #devices: _f$devices,
   };
 
   static GetDevicesBody _instantiate(DecodingData data) {
     return GetDevicesBody(
-        page: data.get(#page),
-        resultsPerPage: data.get(#resultsPerPage),
-        totalDevices: data.get(#totalDevices),
-        countDevices: data.get(#countDevices),
-        devices: data.get(#devices));
+        page: data.dec(_f$page),
+        resultsPerPage: data.dec(_f$resultsPerPage),
+        totalDevices: data.dec(_f$totalDevices),
+        countDevices: data.dec(_f$countDevices),
+        devices: data.dec(_f$devices));
   }
 
   @override
@@ -94,16 +100,14 @@ mixin GetDevicesBodyMappable {
   }
 }
 
-extension GetDevicesBodyValueCopy<$R, $Out extends GetDevicesBody>
+extension GetDevicesBodyValueCopy<$R, $Out>
     on ObjectCopyWith<$R, GetDevicesBody, $Out> {
   GetDevicesBodyCopyWith<$R, GetDevicesBody, $Out> get $asGetDevicesBody =>
       $base.as((v, t, t2) => _GetDevicesBodyCopyWithImpl(v, t, t2));
 }
 
-typedef GetDevicesBodyCopyWithBound = GetDevicesBody;
-
-abstract class GetDevicesBodyCopyWith<$R, $In extends GetDevicesBody,
-    $Out extends GetDevicesBody> implements ClassCopyWith<$R, $In, $Out> {
+abstract class GetDevicesBodyCopyWith<$R, $In extends GetDevicesBody, $Out>
+    implements ClassCopyWith<$R, $In, $Out> {
   DevicesCopyWith<$R, Devices, Devices> get devices;
   $R call(
       {String? page,
@@ -111,12 +115,11 @@ abstract class GetDevicesBodyCopyWith<$R, $In extends GetDevicesBody,
       String? totalDevices,
       String? countDevices,
       Devices? devices});
-  GetDevicesBodyCopyWith<$R2, $In, $Out2>
-      $chain<$R2, $Out2 extends GetDevicesBody>(
-          Then<GetDevicesBody, $Out2> t, Then<$Out2, $R2> t2);
+  GetDevicesBodyCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+      Then<$Out2, $R2> t);
 }
 
-class _GetDevicesBodyCopyWithImpl<$R, $Out extends GetDevicesBody>
+class _GetDevicesBodyCopyWithImpl<$R, $Out>
     extends ClassCopyWithBase<$R, GetDevicesBody, $Out>
     implements GetDevicesBodyCopyWith<$R, GetDevicesBody, $Out> {
   _GetDevicesBodyCopyWithImpl(super.value, super.then, super.then2);
@@ -126,7 +129,7 @@ class _GetDevicesBodyCopyWithImpl<$R, $Out extends GetDevicesBody>
       GetDevicesBodyMapper.ensureInitialized();
   @override
   DevicesCopyWith<$R, Devices, Devices> get devices =>
-      $value.devices.copyWith.$chain($identity, (v) => call(devices: v));
+      $value.devices.copyWith.$chain((v) => call(devices: v));
   @override
   $R call(
           {String? page,
@@ -150,14 +153,14 @@ class _GetDevicesBodyCopyWithImpl<$R, $Out extends GetDevicesBody>
       devices: data.get(#devices, or: $value.devices));
 
   @override
-  GetDevicesBodyCopyWith<$R2, GetDevicesBody, $Out2>
-      $chain<$R2, $Out2 extends GetDevicesBody>(
-              Then<GetDevicesBody, $Out2> t, Then<$Out2, $R2> t2) =>
-          _GetDevicesBodyCopyWithImpl($value, t, t2);
+  GetDevicesBodyCopyWith<$R2, GetDevicesBody, $Out2> $chain<$R2, $Out2>(
+          Then<$Out2, $R2> t) =>
+      _GetDevicesBodyCopyWithImpl($value, $cast, t);
 }
 
 class DevicesMapper extends ClassMapperBase<Devices> {
   DevicesMapper._();
+
   static DevicesMapper? _instance;
   static DevicesMapper ensureInitialized() {
     if (_instance == null) {
@@ -176,14 +179,16 @@ class DevicesMapper extends ClassMapperBase<Devices> {
   final String id = 'Devices';
 
   static List<Device> _$device(Devices v) => v.device;
+  static const Field<Devices, List<Device>> _f$device =
+      Field('device', _$device);
 
   @override
   final Map<Symbol, Field<Devices, dynamic>> fields = const {
-    #device: Field<Devices, List<Device>>('device', _$device),
+    #device: _f$device,
   };
 
   static Devices _instantiate(DecodingData data) {
-    return Devices(device: data.get(#device));
+    return Devices(device: data.dec(_f$device));
   }
 
   @override
@@ -227,23 +232,19 @@ mixin DevicesMappable {
   }
 }
 
-extension DevicesValueCopy<$R, $Out extends Devices>
-    on ObjectCopyWith<$R, Devices, $Out> {
+extension DevicesValueCopy<$R, $Out> on ObjectCopyWith<$R, Devices, $Out> {
   DevicesCopyWith<$R, Devices, $Out> get $asDevices =>
       $base.as((v, t, t2) => _DevicesCopyWithImpl(v, t, t2));
 }
 
-typedef DevicesCopyWithBound = Devices;
-
-abstract class DevicesCopyWith<$R, $In extends Devices, $Out extends Devices>
+abstract class DevicesCopyWith<$R, $In extends Devices, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, Device, DeviceCopyWith<$R, Device, Device>> get device;
   $R call({List<Device>? device});
-  DevicesCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2 extends Devices>(
-      Then<Devices, $Out2> t, Then<$Out2, $R2> t2);
+  DevicesCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
-class _DevicesCopyWithImpl<$R, $Out extends Devices>
+class _DevicesCopyWithImpl<$R, $Out>
     extends ClassCopyWithBase<$R, Devices, $Out>
     implements DevicesCopyWith<$R, Devices, $Out> {
   _DevicesCopyWithImpl(super.value, super.then, super.then2);
@@ -253,9 +254,7 @@ class _DevicesCopyWithImpl<$R, $Out extends Devices>
       DevicesMapper.ensureInitialized();
   @override
   ListCopyWith<$R, Device, DeviceCopyWith<$R, Device, Device>> get device =>
-      ListCopyWith(
-          $value.device,
-          (v, t) => v.copyWith.$chain<$R, Device>($identity, t),
+      ListCopyWith($value.device, (v, t) => v.copyWith.$chain(t),
           (v) => call(device: v));
   @override
   $R call({List<Device>? device}) =>
@@ -265,13 +264,13 @@ class _DevicesCopyWithImpl<$R, $Out extends Devices>
       Devices(device: data.get(#device, or: $value.device));
 
   @override
-  DevicesCopyWith<$R2, Devices, $Out2> $chain<$R2, $Out2 extends Devices>(
-          Then<Devices, $Out2> t, Then<$Out2, $R2> t2) =>
-      _DevicesCopyWithImpl($value, t, t2);
+  DevicesCopyWith<$R2, Devices, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t) =>
+      _DevicesCopyWithImpl($value, $cast, t);
 }
 
 class DeviceMapper extends ClassMapperBase<Device> {
   DeviceMapper._();
+
   static DeviceMapper? _instance;
   static DeviceMapper ensureInitialized() {
     if (_instance == null) {
@@ -289,141 +288,185 @@ class DeviceMapper extends ClassMapperBase<Device> {
   final String id = 'Device';
 
   static String _$deviceId(Device v) => v.deviceId;
+  static const Field<Device, String> _f$deviceId =
+      Field('deviceId', _$deviceId, key: 'd_id');
   static String _$serialNumber(Device v) => v.serialNumber;
+  static const Field<Device, String> _f$serialNumber =
+      Field('serialNumber', _$serialNumber, key: 'd_serial_number');
   static String _$macAddress(Device v) => v.macAddress;
+  static const Field<Device, String> _f$macAddress =
+      Field('macAddress', _$macAddress, key: 'd_mac_address');
   static String _$macAddress2(Device v) => v.macAddress2;
+  static const Field<Device, String> _f$macAddress2 =
+      Field('macAddress2', _$macAddress2, key: 'd_mac_address2');
   static String? _$name(Device v) => v.name;
+  static const Field<Device, String> _f$name =
+      Field('name', _$name, key: 'd_name');
   static String _$online(Device v) => v.online;
+  static const Field<Device, String> _f$online =
+      Field('online', _$online, key: 'd_online');
   static String _$online2(Device v) => v.online2;
+  static const Field<Device, String> _f$online2 =
+      Field('online2', _$online2, key: 'd_online2');
   static String _$type(Device v) => v.type;
+  static const Field<Device, String> _f$type =
+      Field('type', _$type, key: 'd_type');
   static String _$version(Device v) => v.version;
+  static const Field<Device, String> _f$version =
+      Field('version', _$version, key: 'd_version');
   static String? _$variant(Device v) => v.variant;
+  static const Field<Device, String> _f$variant =
+      Field('variant', _$variant, key: 'd_variant');
   static String? _$ipAddress0(Device v) => v.ipAddress0;
+  static const Field<Device, String> _f$ipAddress0 =
+      Field('ipAddress0', _$ipAddress0, key: 'd_ip_address0');
   static String? _$ipAddress(Device v) => v.ipAddress;
+  static const Field<Device, String> _f$ipAddress =
+      Field('ipAddress', _$ipAddress, key: 'd_ip_address');
   static String? _$ipAddress2(Device v) => v.ipAddress2;
+  static const Field<Device, String> _f$ipAddress2 =
+      Field('ipAddress2', _$ipAddress2, key: 'd_ip_address2');
   static String? _$description(Device v) => v.description;
+  static const Field<Device, String> _f$description =
+      Field('description', _$description, key: 'd_description');
   static String? _$location(Device v) => v.location;
+  static const Field<Device, String> _f$location =
+      Field('location', _$location, key: 'd_location');
   static String _$configured(Device v) => v.configured;
+  static const Field<Device, String> _f$configured =
+      Field('configured', _$configured, key: 'd_configured');
   static String _$validFirmware(Device v) => v.validFirmware;
+  static const Field<Device, String> _f$validFirmware =
+      Field('validFirmware', _$validFirmware, key: 'd_valid_firmware');
   static String _$validBackupFirmware(Device v) => v.validBackupFirmware;
+  static const Field<Device, String> _f$validBackupFirmware = Field(
+      'validBackupFirmware', _$validBackupFirmware,
+      key: 'd_valid_backup_firmware');
   static String _$firmware(Device v) => v.firmware;
+  static const Field<Device, String> _f$firmware =
+      Field('firmware', _$firmware, key: 'd_firmware');
   static String _$backupFirmware(Device v) => v.backupFirmware;
+  static const Field<Device, String> _f$backupFirmware =
+      Field('backupFirmware', _$backupFirmware, key: 'd_backup_firmware');
   static String? _$dateAdded(Device v) => v.dateAdded;
+  static const Field<Device, String> _f$dateAdded =
+      Field('dateAdded', _$dateAdded, key: 'd_date_added');
   static String _$status(Device v) => v.status;
+  static const Field<Device, String> _f$status =
+      Field('status', _$status, key: 'd_status');
   static String? _$domainNumber(Device v) => v.domainNumber;
+  static const Field<Device, String> _f$domainNumber =
+      Field('domainNumber', _$domainNumber, key: 'd_domain_no');
   static String? _$deviceVdiType(Device v) => v.deviceVdiType;
+  static const Field<Device, String> _f$deviceVdiType =
+      Field('deviceVdiType', _$deviceVdiType, key: 'd_device_vdi_type');
   static String? _$conExclusive(Device v) => v.conExclusive;
+  static const Field<Device, String> _f$conExclusive =
+      Field('conExclusive', _$conExclusive, key: 'con_exclusive');
   static String? _$conControl(Device v) => v.conControl;
+  static const Field<Device, String> _f$conControl =
+      Field('conControl', _$conControl, key: 'con_control');
   static String? _$conStartTime(Device v) => v.conStartTime;
+  static const Field<Device, String> _f$conStartTime =
+      Field('conStartTime', _$conStartTime, key: 'con_start_time');
   static String? _$conEndTime(Device v) => v.conEndTime;
+  static const Field<Device, String> _f$conEndTime =
+      Field('conEndTime', _$conEndTime, key: 'con_end_time');
   static String? _$username(Device v) => v.username;
+  static const Field<Device, String> _f$username =
+      Field('username', _$username, key: 'u_username');
   static String? _$userId(Device v) => v.userId;
+  static const Field<Device, String> _f$userId =
+      Field('userId', _$userId, key: 'u_id');
   static String? _$channelName(Device v) => v.channelName;
+  static const Field<Device, String> _f$channelName =
+      Field('channelName', _$channelName, key: 'c_name');
   static String? _$countReceiverGroups(Device v) => v.countReceiverGroups;
+  static const Field<Device, String> _f$countReceiverGroups = Field(
+      'countReceiverGroups', _$countReceiverGroups,
+      key: 'count_receiver_groups');
   static String? _$countReceiverPresets(Device v) => v.countReceiverPresets;
+  static const Field<Device, String> _f$countReceiverPresets = Field(
+      'countReceiverPresets', _$countReceiverPresets,
+      key: 'count_receiver_presets');
   static String? _$countUsers(Device v) => v.countUsers;
+  static const Field<Device, String> _f$countUsers =
+      Field('countUsers', _$countUsers, key: 'count_users');
 
   @override
   final Map<Symbol, Field<Device, dynamic>> fields = const {
-    #deviceId: Field<Device, String>('deviceId', _$deviceId, key: 'd_id'),
-    #serialNumber: Field<Device, String>('serialNumber', _$serialNumber,
-        key: 'd_serial_number'),
-    #macAddress:
-        Field<Device, String>('macAddress', _$macAddress, key: 'd_mac_address'),
-    #macAddress2: Field<Device, String>('macAddress2', _$macAddress2,
-        key: 'd_mac_address2'),
-    #name: Field<Device, String?>('name', _$name, key: 'd_name'),
-    #online: Field<Device, String>('online', _$online, key: 'd_online'),
-    #online2: Field<Device, String>('online2', _$online2, key: 'd_online2'),
-    #type: Field<Device, String>('type', _$type, key: 'd_type'),
-    #version: Field<Device, String>('version', _$version, key: 'd_version'),
-    #variant: Field<Device, String?>('variant', _$variant, key: 'd_variant'),
-    #ipAddress0: Field<Device, String?>('ipAddress0', _$ipAddress0,
-        key: 'd_ip_address0'),
-    #ipAddress:
-        Field<Device, String?>('ipAddress', _$ipAddress, key: 'd_ip_address'),
-    #ipAddress2: Field<Device, String?>('ipAddress2', _$ipAddress2,
-        key: 'd_ip_address2'),
-    #description: Field<Device, String?>('description', _$description,
-        key: 'd_description'),
-    #location:
-        Field<Device, String?>('location', _$location, key: 'd_location'),
-    #configured:
-        Field<Device, String>('configured', _$configured, key: 'd_configured'),
-    #validFirmware: Field<Device, String>('validFirmware', _$validFirmware,
-        key: 'd_valid_firmware'),
-    #validBackupFirmware: Field<Device, String>(
-        'validBackupFirmware', _$validBackupFirmware,
-        key: 'd_valid_backup_firmware'),
-    #firmware: Field<Device, String>('firmware', _$firmware, key: 'd_firmware'),
-    #backupFirmware: Field<Device, String>('backupFirmware', _$backupFirmware,
-        key: 'd_backup_firmware'),
-    #dateAdded:
-        Field<Device, String?>('dateAdded', _$dateAdded, key: 'd_date_added'),
-    #status: Field<Device, String>('status', _$status, key: 'd_status'),
-    #domainNumber: Field<Device, String?>('domainNumber', _$domainNumber,
-        key: 'd_domain_no'),
-    #deviceVdiType: Field<Device, String?>('deviceVdiType', _$deviceVdiType,
-        key: 'd_device_vdi_type'),
-    #conExclusive: Field<Device, String?>('conExclusive', _$conExclusive,
-        key: 'con_exclusive'),
-    #conControl:
-        Field<Device, String?>('conControl', _$conControl, key: 'con_control'),
-    #conStartTime: Field<Device, String?>('conStartTime', _$conStartTime,
-        key: 'con_start_time'),
-    #conEndTime:
-        Field<Device, String?>('conEndTime', _$conEndTime, key: 'con_end_time'),
-    #username:
-        Field<Device, String?>('username', _$username, key: 'u_username'),
-    #userId: Field<Device, String?>('userId', _$userId, key: 'u_id'),
-    #channelName:
-        Field<Device, String?>('channelName', _$channelName, key: 'c_name'),
-    #countReceiverGroups: Field<Device, String?>(
-        'countReceiverGroups', _$countReceiverGroups,
-        key: 'count_receiver_groups'),
-    #countReceiverPresets: Field<Device, String?>(
-        'countReceiverPresets', _$countReceiverPresets,
-        key: 'count_receiver_presets'),
-    #countUsers:
-        Field<Device, String?>('countUsers', _$countUsers, key: 'count_users'),
+    #deviceId: _f$deviceId,
+    #serialNumber: _f$serialNumber,
+    #macAddress: _f$macAddress,
+    #macAddress2: _f$macAddress2,
+    #name: _f$name,
+    #online: _f$online,
+    #online2: _f$online2,
+    #type: _f$type,
+    #version: _f$version,
+    #variant: _f$variant,
+    #ipAddress0: _f$ipAddress0,
+    #ipAddress: _f$ipAddress,
+    #ipAddress2: _f$ipAddress2,
+    #description: _f$description,
+    #location: _f$location,
+    #configured: _f$configured,
+    #validFirmware: _f$validFirmware,
+    #validBackupFirmware: _f$validBackupFirmware,
+    #firmware: _f$firmware,
+    #backupFirmware: _f$backupFirmware,
+    #dateAdded: _f$dateAdded,
+    #status: _f$status,
+    #domainNumber: _f$domainNumber,
+    #deviceVdiType: _f$deviceVdiType,
+    #conExclusive: _f$conExclusive,
+    #conControl: _f$conControl,
+    #conStartTime: _f$conStartTime,
+    #conEndTime: _f$conEndTime,
+    #username: _f$username,
+    #userId: _f$userId,
+    #channelName: _f$channelName,
+    #countReceiverGroups: _f$countReceiverGroups,
+    #countReceiverPresets: _f$countReceiverPresets,
+    #countUsers: _f$countUsers,
   };
 
   static Device _instantiate(DecodingData data) {
     return Device(
-        deviceId: data.get(#deviceId),
-        serialNumber: data.get(#serialNumber),
-        macAddress: data.get(#macAddress),
-        macAddress2: data.get(#macAddress2),
-        name: data.get(#name),
-        online: data.get(#online),
-        online2: data.get(#online2),
-        type: data.get(#type),
-        version: data.get(#version),
-        variant: data.get(#variant),
-        ipAddress0: data.get(#ipAddress0),
-        ipAddress: data.get(#ipAddress),
-        ipAddress2: data.get(#ipAddress2),
-        description: data.get(#description),
-        location: data.get(#location),
-        configured: data.get(#configured),
-        validFirmware: data.get(#validFirmware),
-        validBackupFirmware: data.get(#validBackupFirmware),
-        firmware: data.get(#firmware),
-        backupFirmware: data.get(#backupFirmware),
-        dateAdded: data.get(#dateAdded),
-        status: data.get(#status),
-        domainNumber: data.get(#domainNumber),
-        deviceVdiType: data.get(#deviceVdiType),
-        conExclusive: data.get(#conExclusive),
-        conControl: data.get(#conControl),
-        conStartTime: data.get(#conStartTime),
-        conEndTime: data.get(#conEndTime),
-        username: data.get(#username),
-        userId: data.get(#userId),
-        channelName: data.get(#channelName),
-        countReceiverGroups: data.get(#countReceiverGroups),
-        countReceiverPresets: data.get(#countReceiverPresets),
-        countUsers: data.get(#countUsers));
+        deviceId: data.dec(_f$deviceId),
+        serialNumber: data.dec(_f$serialNumber),
+        macAddress: data.dec(_f$macAddress),
+        macAddress2: data.dec(_f$macAddress2),
+        name: data.dec(_f$name),
+        online: data.dec(_f$online),
+        online2: data.dec(_f$online2),
+        type: data.dec(_f$type),
+        version: data.dec(_f$version),
+        variant: data.dec(_f$variant),
+        ipAddress0: data.dec(_f$ipAddress0),
+        ipAddress: data.dec(_f$ipAddress),
+        ipAddress2: data.dec(_f$ipAddress2),
+        description: data.dec(_f$description),
+        location: data.dec(_f$location),
+        configured: data.dec(_f$configured),
+        validFirmware: data.dec(_f$validFirmware),
+        validBackupFirmware: data.dec(_f$validBackupFirmware),
+        firmware: data.dec(_f$firmware),
+        backupFirmware: data.dec(_f$backupFirmware),
+        dateAdded: data.dec(_f$dateAdded),
+        status: data.dec(_f$status),
+        domainNumber: data.dec(_f$domainNumber),
+        deviceVdiType: data.dec(_f$deviceVdiType),
+        conExclusive: data.dec(_f$conExclusive),
+        conControl: data.dec(_f$conControl),
+        conStartTime: data.dec(_f$conStartTime),
+        conEndTime: data.dec(_f$conEndTime),
+        username: data.dec(_f$username),
+        userId: data.dec(_f$userId),
+        channelName: data.dec(_f$channelName),
+        countReceiverGroups: data.dec(_f$countReceiverGroups),
+        countReceiverPresets: data.dec(_f$countReceiverPresets),
+        countUsers: data.dec(_f$countUsers));
   }
 
   @override
@@ -467,15 +510,12 @@ mixin DeviceMappable {
   }
 }
 
-extension DeviceValueCopy<$R, $Out extends Device>
-    on ObjectCopyWith<$R, Device, $Out> {
+extension DeviceValueCopy<$R, $Out> on ObjectCopyWith<$R, Device, $Out> {
   DeviceCopyWith<$R, Device, $Out> get $asDevice =>
       $base.as((v, t, t2) => _DeviceCopyWithImpl(v, t, t2));
 }
 
-typedef DeviceCopyWithBound = Device;
-
-abstract class DeviceCopyWith<$R, $In extends Device, $Out extends Device>
+abstract class DeviceCopyWith<$R, $In extends Device, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   $R call(
       {String? deviceId,
@@ -512,12 +552,10 @@ abstract class DeviceCopyWith<$R, $In extends Device, $Out extends Device>
       String? countReceiverGroups,
       String? countReceiverPresets,
       String? countUsers});
-  DeviceCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2 extends Device>(
-      Then<Device, $Out2> t, Then<$Out2, $R2> t2);
+  DeviceCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
-class _DeviceCopyWithImpl<$R, $Out extends Device>
-    extends ClassCopyWithBase<$R, Device, $Out>
+class _DeviceCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Device, $Out>
     implements DeviceCopyWith<$R, Device, $Out> {
   _DeviceCopyWithImpl(super.value, super.then, super.then2);
 
@@ -639,7 +677,6 @@ class _DeviceCopyWithImpl<$R, $Out extends Device>
       countUsers: data.get(#countUsers, or: $value.countUsers));
 
   @override
-  DeviceCopyWith<$R2, Device, $Out2> $chain<$R2, $Out2 extends Device>(
-          Then<Device, $Out2> t, Then<$Out2, $R2> t2) =>
-      _DeviceCopyWithImpl($value, t, t2);
+  DeviceCopyWith<$R2, Device, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t) =>
+      _DeviceCopyWithImpl($value, $cast, t);
 }

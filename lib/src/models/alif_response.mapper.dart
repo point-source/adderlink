@@ -7,6 +7,7 @@ part of 'alif_response.dart';
 
 class AlifResponseMapper extends ClassMapperBase<AlifResponse> {
   AlifResponseMapper._();
+
   static AlifResponseMapper? _instance;
   static AlifResponseMapper ensureInitialized() {
     if (_instance == null) {
@@ -27,30 +28,38 @@ class AlifResponseMapper extends ClassMapperBase<AlifResponse> {
   Function get typeFactory => <T>(f) => f<AlifResponse<T>>();
 
   static int _$version(AlifResponse v) => v.version;
+  static const Field<AlifResponse, int> _f$version =
+      Field('version', _$version);
   static DateTime _$timestamp(AlifResponse v) => v.timestamp;
+  static const Field<AlifResponse, DateTime> _f$timestamp =
+      Field('timestamp', _$timestamp);
   static bool _$isSuccessful(AlifResponse v) => v.isSuccessful;
+  static const Field<AlifResponse, bool> _f$isSuccessful =
+      Field('isSuccessful', _$isSuccessful);
   static List<AlifError> _$errors(AlifResponse v) => v.errors;
+  static const Field<AlifResponse, List<AlifError>> _f$errors =
+      Field('errors', _$errors, opt: true, def: const []);
   static dynamic _$body(AlifResponse v) => v.body;
-  static dynamic _arg$body<T>(f) => f<T?>();
+  static dynamic _arg$body<T>(f) => f<T>();
+  static const Field<AlifResponse, dynamic> _f$body =
+      Field('body', _$body, opt: true, arg: _arg$body);
 
   @override
   final Map<Symbol, Field<AlifResponse, dynamic>> fields = const {
-    #version: Field<AlifResponse, int>('version', _$version),
-    #timestamp: Field<AlifResponse, DateTime>('timestamp', _$timestamp),
-    #isSuccessful: Field<AlifResponse, bool>('isSuccessful', _$isSuccessful),
-    #errors: Field<AlifResponse, List<AlifError>>('errors', _$errors,
-        opt: true, def: const []),
-    #body:
-        Field<AlifResponse, dynamic>('body', _$body, opt: true, arg: _arg$body),
+    #version: _f$version,
+    #timestamp: _f$timestamp,
+    #isSuccessful: _f$isSuccessful,
+    #errors: _f$errors,
+    #body: _f$body,
   };
 
   static AlifResponse<T> _instantiate<T>(DecodingData data) {
     return AlifResponse(
-        version: data.get(#version),
-        timestamp: data.get(#timestamp),
-        isSuccessful: data.get(#isSuccessful),
-        errors: data.get(#errors),
-        body: data.get(#body));
+        version: data.dec(_f$version),
+        timestamp: data.dec(_f$timestamp),
+        isSuccessful: data.dec(_f$isSuccessful),
+        errors: data.dec(_f$errors),
+        body: data.dec(_f$body));
   }
 
   @override
@@ -95,16 +104,14 @@ mixin AlifResponseMappable<T> {
   }
 }
 
-extension AlifResponseValueCopy<$R, $Out extends AlifResponse, T>
+extension AlifResponseValueCopy<$R, $Out, T>
     on ObjectCopyWith<$R, AlifResponse<T>, $Out> {
   AlifResponseCopyWith<$R, AlifResponse<T>, $Out, T> get $asAlifResponse =>
       $base.as((v, t, t2) => _AlifResponseCopyWithImpl(v, t, t2));
 }
 
-typedef AlifResponseCopyWithBound = AlifResponse;
-
-abstract class AlifResponseCopyWith<$R, $In extends AlifResponse<T>,
-    $Out extends AlifResponse, T> implements ClassCopyWith<$R, $In, $Out> {
+abstract class AlifResponseCopyWith<$R, $In extends AlifResponse<T>, $Out, T>
+    implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, AlifError, AlifErrorCopyWith<$R, AlifError, AlifError>>
       get errors;
   $R call(
@@ -113,12 +120,11 @@ abstract class AlifResponseCopyWith<$R, $In extends AlifResponse<T>,
       bool? isSuccessful,
       List<AlifError>? errors,
       T? body});
-  AlifResponseCopyWith<$R2, $In, $Out2, T>
-      $chain<$R2, $Out2 extends AlifResponse>(
-          Then<AlifResponse<T>, $Out2> t, Then<$Out2, $R2> t2);
+  AlifResponseCopyWith<$R2, $In, $Out2, T> $chain<$R2, $Out2>(
+      Then<$Out2, $R2> t);
 }
 
-class _AlifResponseCopyWithImpl<$R, $Out extends AlifResponse, T>
+class _AlifResponseCopyWithImpl<$R, $Out, T>
     extends ClassCopyWithBase<$R, AlifResponse<T>, $Out>
     implements AlifResponseCopyWith<$R, AlifResponse<T>, $Out, T> {
   _AlifResponseCopyWithImpl(super.value, super.then, super.then2);
@@ -128,9 +134,7 @@ class _AlifResponseCopyWithImpl<$R, $Out extends AlifResponse, T>
       AlifResponseMapper.ensureInitialized();
   @override
   ListCopyWith<$R, AlifError, AlifErrorCopyWith<$R, AlifError, AlifError>>
-      get errors => ListCopyWith(
-          $value.errors,
-          (v, t) => v.copyWith.$chain<$R, AlifError>($identity, t),
+      get errors => ListCopyWith($value.errors, (v, t) => v.copyWith.$chain(t),
           (v) => call(errors: v));
   @override
   $R call(
@@ -155,8 +159,7 @@ class _AlifResponseCopyWithImpl<$R, $Out extends AlifResponse, T>
       body: data.get(#body, or: $value.body));
 
   @override
-  AlifResponseCopyWith<$R2, AlifResponse<T>, $Out2, T>
-      $chain<$R2, $Out2 extends AlifResponse>(
-              Then<AlifResponse<T>, $Out2> t, Then<$Out2, $R2> t2) =>
-          _AlifResponseCopyWithImpl($value, t, t2);
+  AlifResponseCopyWith<$R2, AlifResponse<T>, $Out2, T> $chain<$R2, $Out2>(
+          Then<$Out2, $R2> t) =>
+      _AlifResponseCopyWithImpl($value, $cast, t);
 }

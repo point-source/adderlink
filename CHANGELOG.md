@@ -1,4 +1,9 @@
 ## 4.0.0-dev.0
+
+- Update dart_mappable to 3.1.1
+
+## 4.0.0-dev.0
+
 - Update dart_mappable to 3.0.0-dev.1
 
 ## 3.0.0

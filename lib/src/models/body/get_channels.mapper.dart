@@ -7,6 +7,7 @@ part of 'get_channels.dart';
 
 class GetChannelsBodyMapper extends ClassMapperBase<GetChannelsBody> {
   GetChannelsBodyMapper._();
+
   static GetChannelsBodyMapper? _instance;
   static GetChannelsBodyMapper ensureInitialized() {
     if (_instance == null) {
@@ -25,29 +26,33 @@ class GetChannelsBodyMapper extends ClassMapperBase<GetChannelsBody> {
   final String id = 'GetChannelsBody';
 
   static String? _$page(GetChannelsBody v) => v.page;
+  static const Field<GetChannelsBody, String> _f$page =
+      Field('page', _$page, opt: true);
   static String? _$resultsPerPage(GetChannelsBody v) => v.resultsPerPage;
+  static const Field<GetChannelsBody, String> _f$resultsPerPage = Field(
+      'resultsPerPage', _$resultsPerPage,
+      key: 'results_per_page', opt: true);
   static String _$channelCount(GetChannelsBody v) => v.channelCount;
+  static const Field<GetChannelsBody, String> _f$channelCount =
+      Field('channelCount', _$channelCount, key: 'count_channels');
   static Channels? _$channels(GetChannelsBody v) => v.channels;
+  static const Field<GetChannelsBody, Channels> _f$channels =
+      Field('channels', _$channels, opt: true);
 
   @override
   final Map<Symbol, Field<GetChannelsBody, dynamic>> fields = const {
-    #page: Field<GetChannelsBody, String?>('page', _$page, opt: true),
-    #resultsPerPage: Field<GetChannelsBody, String?>(
-        'resultsPerPage', _$resultsPerPage,
-        key: 'results_per_page', opt: true),
-    #channelCount: Field<GetChannelsBody, String>(
-        'channelCount', _$channelCount,
-        key: 'count_channels'),
-    #channels:
-        Field<GetChannelsBody, Channels?>('channels', _$channels, opt: true),
+    #page: _f$page,
+    #resultsPerPage: _f$resultsPerPage,
+    #channelCount: _f$channelCount,
+    #channels: _f$channels,
   };
 
   static GetChannelsBody _instantiate(DecodingData data) {
     return GetChannelsBody(
-        page: data.get(#page),
-        resultsPerPage: data.get(#resultsPerPage),
-        channelCount: data.get(#channelCount),
-        channels: data.get(#channels));
+        page: data.dec(_f$page),
+        resultsPerPage: data.dec(_f$resultsPerPage),
+        channelCount: data.dec(_f$channelCount),
+        channels: data.dec(_f$channels));
   }
 
   @override
@@ -94,28 +99,25 @@ mixin GetChannelsBodyMappable {
   }
 }
 
-extension GetChannelsBodyValueCopy<$R, $Out extends GetChannelsBody>
+extension GetChannelsBodyValueCopy<$R, $Out>
     on ObjectCopyWith<$R, GetChannelsBody, $Out> {
   GetChannelsBodyCopyWith<$R, GetChannelsBody, $Out> get $asGetChannelsBody =>
       $base.as((v, t, t2) => _GetChannelsBodyCopyWithImpl(v, t, t2));
 }
 
-typedef GetChannelsBodyCopyWithBound = GetChannelsBody;
-
-abstract class GetChannelsBodyCopyWith<$R, $In extends GetChannelsBody,
-    $Out extends GetChannelsBody> implements ClassCopyWith<$R, $In, $Out> {
+abstract class GetChannelsBodyCopyWith<$R, $In extends GetChannelsBody, $Out>
+    implements ClassCopyWith<$R, $In, $Out> {
   ChannelsCopyWith<$R, Channels, Channels>? get channels;
   $R call(
       {String? page,
       String? resultsPerPage,
       String? channelCount,
       Channels? channels});
-  GetChannelsBodyCopyWith<$R2, $In, $Out2>
-      $chain<$R2, $Out2 extends GetChannelsBody>(
-          Then<GetChannelsBody, $Out2> t, Then<$Out2, $R2> t2);
+  GetChannelsBodyCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+      Then<$Out2, $R2> t);
 }
 
-class _GetChannelsBodyCopyWithImpl<$R, $Out extends GetChannelsBody>
+class _GetChannelsBodyCopyWithImpl<$R, $Out>
     extends ClassCopyWithBase<$R, GetChannelsBody, $Out>
     implements GetChannelsBodyCopyWith<$R, GetChannelsBody, $Out> {
   _GetChannelsBodyCopyWithImpl(super.value, super.then, super.then2);
@@ -125,7 +127,7 @@ class _GetChannelsBodyCopyWithImpl<$R, $Out extends GetChannelsBody>
       GetChannelsBodyMapper.ensureInitialized();
   @override
   ChannelsCopyWith<$R, Channels, Channels>? get channels =>
-      $value.channels?.copyWith.$chain($identity, (v) => call(channels: v));
+      $value.channels?.copyWith.$chain((v) => call(channels: v));
   @override
   $R call(
           {Object? page = $none,
@@ -146,14 +148,14 @@ class _GetChannelsBodyCopyWithImpl<$R, $Out extends GetChannelsBody>
       channels: data.get(#channels, or: $value.channels));
 
   @override
-  GetChannelsBodyCopyWith<$R2, GetChannelsBody, $Out2>
-      $chain<$R2, $Out2 extends GetChannelsBody>(
-              Then<GetChannelsBody, $Out2> t, Then<$Out2, $R2> t2) =>
-          _GetChannelsBodyCopyWithImpl($value, t, t2);
+  GetChannelsBodyCopyWith<$R2, GetChannelsBody, $Out2> $chain<$R2, $Out2>(
+          Then<$Out2, $R2> t) =>
+      _GetChannelsBodyCopyWithImpl($value, $cast, t);
 }
 
 class ChannelsMapper extends ClassMapperBase<Channels> {
   ChannelsMapper._();
+
   static ChannelsMapper? _instance;
   static ChannelsMapper ensureInitialized() {
     if (_instance == null) {
@@ -172,14 +174,16 @@ class ChannelsMapper extends ClassMapperBase<Channels> {
   final String id = 'Channels';
 
   static List<Channel> _$channel(Channels v) => v.channel;
+  static const Field<Channels, List<Channel>> _f$channel =
+      Field('channel', _$channel);
 
   @override
   final Map<Symbol, Field<Channels, dynamic>> fields = const {
-    #channel: Field<Channels, List<Channel>>('channel', _$channel),
+    #channel: _f$channel,
   };
 
   static Channels _instantiate(DecodingData data) {
-    return Channels(channel: data.get(#channel));
+    return Channels(channel: data.dec(_f$channel));
   }
 
   @override
@@ -223,23 +227,19 @@ mixin ChannelsMappable {
   }
 }
 
-extension ChannelsValueCopy<$R, $Out extends Channels>
-    on ObjectCopyWith<$R, Channels, $Out> {
+extension ChannelsValueCopy<$R, $Out> on ObjectCopyWith<$R, Channels, $Out> {
   ChannelsCopyWith<$R, Channels, $Out> get $asChannels =>
       $base.as((v, t, t2) => _ChannelsCopyWithImpl(v, t, t2));
 }
 
-typedef ChannelsCopyWithBound = Channels;
-
-abstract class ChannelsCopyWith<$R, $In extends Channels, $Out extends Channels>
+abstract class ChannelsCopyWith<$R, $In extends Channels, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, Channel, ChannelCopyWith<$R, Channel, Channel>> get channel;
   $R call({List<Channel>? channel});
-  ChannelsCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2 extends Channels>(
-      Then<Channels, $Out2> t, Then<$Out2, $R2> t2);
+  ChannelsCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
-class _ChannelsCopyWithImpl<$R, $Out extends Channels>
+class _ChannelsCopyWithImpl<$R, $Out>
     extends ClassCopyWithBase<$R, Channels, $Out>
     implements ChannelsCopyWith<$R, Channels, $Out> {
   _ChannelsCopyWithImpl(super.value, super.then, super.then2);
@@ -249,10 +249,8 @@ class _ChannelsCopyWithImpl<$R, $Out extends Channels>
       ChannelsMapper.ensureInitialized();
   @override
   ListCopyWith<$R, Channel, ChannelCopyWith<$R, Channel, Channel>>
-      get channel => ListCopyWith(
-          $value.channel,
-          (v, t) => v.copyWith.$chain<$R, Channel>($identity, t),
-          (v) => call(channel: v));
+      get channel => ListCopyWith($value.channel,
+          (v, t) => v.copyWith.$chain(t), (v) => call(channel: v));
   @override
   $R call({List<Channel>? channel}) =>
       $apply(FieldCopyWithData({if (channel != null) #channel: channel}));
@@ -261,13 +259,14 @@ class _ChannelsCopyWithImpl<$R, $Out extends Channels>
       Channels(channel: data.get(#channel, or: $value.channel));
 
   @override
-  ChannelsCopyWith<$R2, Channels, $Out2> $chain<$R2, $Out2 extends Channels>(
-          Then<Channels, $Out2> t, Then<$Out2, $R2> t2) =>
-      _ChannelsCopyWithImpl($value, t, t2);
+  ChannelsCopyWith<$R2, Channels, $Out2> $chain<$R2, $Out2>(
+          Then<$Out2, $R2> t) =>
+      _ChannelsCopyWithImpl($value, $cast, t);
 }
 
 class ChannelMapper extends ClassMapperBase<Channel> {
   ChannelMapper._();
+
   static ChannelMapper? _instance;
   static ChannelMapper ensureInitialized() {
     if (_instance == null) {
@@ -285,94 +284,127 @@ class ChannelMapper extends ClassMapperBase<Channel> {
   final String id = 'Channel';
 
   static String _$channelId(Channel v) => v.channelId;
+  static const Field<Channel, String> _f$channelId =
+      Field('channelId', _$channelId, key: 'c_id');
   static String? _$name(Channel v) => v.name;
+  static const Field<Channel, String> _f$name =
+      Field('name', _$name, key: 'c_name');
   static String? _$description(Channel v) => v.description;
+  static const Field<Channel, String> _f$description =
+      Field('description', _$description, key: 'c_description');
   static String? _$location(Channel v) => v.location;
+  static const Field<Channel, String> _f$location =
+      Field('location', _$location, key: 'c_location');
   static String? _$channelType(Channel v) => v.channelType;
+  static const Field<Channel, String> _f$channelType =
+      Field('channelType', _$channelType, key: 'c_channel_type');
   static String? _$transmitterId(Channel v) => v.transmitterId;
+  static const Field<Channel, String> _f$transmitterId =
+      Field('transmitterId', _$transmitterId, key: 'c_tx_id');
   static String _$favourite(Channel v) => v.favourite;
+  static const Field<Channel, String> _f$favourite =
+      Field('favourite', _$favourite, key: 'c_favourite');
   static String _$online(Channel v) => v.online;
+  static const Field<Channel, String> _f$online =
+      Field('online', _$online, key: 'channel_online');
   static String? _$video1(Channel v) => v.video1;
+  static const Field<Channel, String> _f$video1 =
+      Field('video1', _$video1, key: 'c_video1');
   static String? _$video1Head(Channel v) => v.video1Head;
+  static const Field<Channel, String> _f$video1Head =
+      Field('video1Head', _$video1Head, key: 'c_video1_head');
   static String? _$video2(Channel v) => v.video2;
+  static const Field<Channel, String> _f$video2 =
+      Field('video2', _$video2, key: 'c_video2');
   static String? _$video2Head(Channel v) => v.video2Head;
+  static const Field<Channel, String> _f$video2Head =
+      Field('video2Head', _$video2Head, key: 'c_video2_head');
   static String? _$audio(Channel v) => v.audio;
+  static const Field<Channel, String> _f$audio =
+      Field('audio', _$audio, key: 'c_audio');
   static String? _$usb(Channel v) => v.usb;
+  static const Field<Channel, String> _f$usb =
+      Field('usb', _$usb, key: 'c_usb');
   static String? _$usb1(Channel v) => v.usb1;
+  static const Field<Channel, String> _f$usb1 =
+      Field('usb1', _$usb1, key: 'c_usb1');
   static String? _$serial(Channel v) => v.serial;
+  static const Field<Channel, String> _f$serial =
+      Field('serial', _$serial, key: 'c_serial');
   static String? _$audio1(Channel v) => v.audio1;
+  static const Field<Channel, String> _f$audio1 =
+      Field('audio1', _$audio1, key: 'c_audio1');
   static String? _$audio2(Channel v) => v.audio2;
+  static const Field<Channel, String> _f$audio2 =
+      Field('audio2', _$audio2, key: 'c_audio2');
   static String _$sensitive(Channel v) => v.sensitive;
+  static const Field<Channel, String> _f$sensitive =
+      Field('sensitive', _$sensitive, key: 'c_sensitive');
   static String _$viewButton(Channel v) => v.viewButton;
+  static const Field<Channel, String> _f$viewButton =
+      Field('viewButton', _$viewButton, key: 'view_button');
   static String _$sharedButton(Channel v) => v.sharedButton;
+  static const Field<Channel, String> _f$sharedButton =
+      Field('sharedButton', _$sharedButton, key: 'shared_button');
   static String _$controlButton(Channel v) => v.controlButton;
+  static const Field<Channel, String> _f$controlButton =
+      Field('controlButton', _$controlButton, key: 'control_button');
   static String _$exclusiveButton(Channel v) => v.exclusiveButton;
+  static const Field<Channel, String> _f$exclusiveButton =
+      Field('exclusiveButton', _$exclusiveButton, key: 'exclusive_button');
 
   @override
   final Map<Symbol, Field<Channel, dynamic>> fields = const {
-    #channelId: Field<Channel, String>('channelId', _$channelId, key: 'c_id'),
-    #name: Field<Channel, String?>('name', _$name, key: 'c_name'),
-    #description: Field<Channel, String?>('description', _$description,
-        key: 'c_description'),
-    #location:
-        Field<Channel, String?>('location', _$location, key: 'c_location'),
-    #channelType: Field<Channel, String?>('channelType', _$channelType,
-        key: 'c_channel_type'),
-    #transmitterId: Field<Channel, String?>('transmitterId', _$transmitterId,
-        key: 'c_tx_id'),
-    #favourite:
-        Field<Channel, String>('favourite', _$favourite, key: 'c_favourite'),
-    #online: Field<Channel, String>('online', _$online, key: 'channel_online'),
-    #video1: Field<Channel, String?>('video1', _$video1, key: 'c_video1'),
-    #video1Head: Field<Channel, String?>('video1Head', _$video1Head,
-        key: 'c_video1_head'),
-    #video2: Field<Channel, String?>('video2', _$video2, key: 'c_video2'),
-    #video2Head: Field<Channel, String?>('video2Head', _$video2Head,
-        key: 'c_video2_head'),
-    #audio: Field<Channel, String?>('audio', _$audio, key: 'c_audio'),
-    #usb: Field<Channel, String?>('usb', _$usb, key: 'c_usb'),
-    #usb1: Field<Channel, String?>('usb1', _$usb1, key: 'c_usb1'),
-    #serial: Field<Channel, String?>('serial', _$serial, key: 'c_serial'),
-    #audio1: Field<Channel, String?>('audio1', _$audio1, key: 'c_audio1'),
-    #audio2: Field<Channel, String?>('audio2', _$audio2, key: 'c_audio2'),
-    #sensitive:
-        Field<Channel, String>('sensitive', _$sensitive, key: 'c_sensitive'),
-    #viewButton:
-        Field<Channel, String>('viewButton', _$viewButton, key: 'view_button'),
-    #sharedButton: Field<Channel, String>('sharedButton', _$sharedButton,
-        key: 'shared_button'),
-    #controlButton: Field<Channel, String>('controlButton', _$controlButton,
-        key: 'control_button'),
-    #exclusiveButton: Field<Channel, String>(
-        'exclusiveButton', _$exclusiveButton,
-        key: 'exclusive_button'),
+    #channelId: _f$channelId,
+    #name: _f$name,
+    #description: _f$description,
+    #location: _f$location,
+    #channelType: _f$channelType,
+    #transmitterId: _f$transmitterId,
+    #favourite: _f$favourite,
+    #online: _f$online,
+    #video1: _f$video1,
+    #video1Head: _f$video1Head,
+    #video2: _f$video2,
+    #video2Head: _f$video2Head,
+    #audio: _f$audio,
+    #usb: _f$usb,
+    #usb1: _f$usb1,
+    #serial: _f$serial,
+    #audio1: _f$audio1,
+    #audio2: _f$audio2,
+    #sensitive: _f$sensitive,
+    #viewButton: _f$viewButton,
+    #sharedButton: _f$sharedButton,
+    #controlButton: _f$controlButton,
+    #exclusiveButton: _f$exclusiveButton,
   };
 
   static Channel _instantiate(DecodingData data) {
     return Channel(
-        channelId: data.get(#channelId),
-        name: data.get(#name),
-        description: data.get(#description),
-        location: data.get(#location),
-        channelType: data.get(#channelType),
-        transmitterId: data.get(#transmitterId),
-        favourite: data.get(#favourite),
-        online: data.get(#online),
-        video1: data.get(#video1),
-        video1Head: data.get(#video1Head),
-        video2: data.get(#video2),
-        video2Head: data.get(#video2Head),
-        audio: data.get(#audio),
-        usb: data.get(#usb),
-        usb1: data.get(#usb1),
-        serial: data.get(#serial),
-        audio1: data.get(#audio1),
-        audio2: data.get(#audio2),
-        sensitive: data.get(#sensitive),
-        viewButton: data.get(#viewButton),
-        sharedButton: data.get(#sharedButton),
-        controlButton: data.get(#controlButton),
-        exclusiveButton: data.get(#exclusiveButton));
+        channelId: data.dec(_f$channelId),
+        name: data.dec(_f$name),
+        description: data.dec(_f$description),
+        location: data.dec(_f$location),
+        channelType: data.dec(_f$channelType),
+        transmitterId: data.dec(_f$transmitterId),
+        favourite: data.dec(_f$favourite),
+        online: data.dec(_f$online),
+        video1: data.dec(_f$video1),
+        video1Head: data.dec(_f$video1Head),
+        video2: data.dec(_f$video2),
+        video2Head: data.dec(_f$video2Head),
+        audio: data.dec(_f$audio),
+        usb: data.dec(_f$usb),
+        usb1: data.dec(_f$usb1),
+        serial: data.dec(_f$serial),
+        audio1: data.dec(_f$audio1),
+        audio2: data.dec(_f$audio2),
+        sensitive: data.dec(_f$sensitive),
+        viewButton: data.dec(_f$viewButton),
+        sharedButton: data.dec(_f$sharedButton),
+        controlButton: data.dec(_f$controlButton),
+        exclusiveButton: data.dec(_f$exclusiveButton));
   }
 
   @override
@@ -416,15 +448,12 @@ mixin ChannelMappable {
   }
 }
 
-extension ChannelValueCopy<$R, $Out extends Channel>
-    on ObjectCopyWith<$R, Channel, $Out> {
+extension ChannelValueCopy<$R, $Out> on ObjectCopyWith<$R, Channel, $Out> {
   ChannelCopyWith<$R, Channel, $Out> get $asChannel =>
       $base.as((v, t, t2) => _ChannelCopyWithImpl(v, t, t2));
 }
 
-typedef ChannelCopyWithBound = Channel;
-
-abstract class ChannelCopyWith<$R, $In extends Channel, $Out extends Channel>
+abstract class ChannelCopyWith<$R, $In extends Channel, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   $R call(
       {String? channelId,
@@ -450,11 +479,10 @@ abstract class ChannelCopyWith<$R, $In extends Channel, $Out extends Channel>
       String? sharedButton,
       String? controlButton,
       String? exclusiveButton});
-  ChannelCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2 extends Channel>(
-      Then<Channel, $Out2> t, Then<$Out2, $R2> t2);
+  ChannelCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
-class _ChannelCopyWithImpl<$R, $Out extends Channel>
+class _ChannelCopyWithImpl<$R, $Out>
     extends ClassCopyWithBase<$R, Channel, $Out>
     implements ChannelCopyWith<$R, Channel, $Out> {
   _ChannelCopyWithImpl(super.value, super.then, super.then2);
@@ -539,7 +567,6 @@ class _ChannelCopyWithImpl<$R, $Out extends Channel>
       exclusiveButton: data.get(#exclusiveButton, or: $value.exclusiveButton));
 
   @override
-  ChannelCopyWith<$R2, Channel, $Out2> $chain<$R2, $Out2 extends Channel>(
-          Then<Channel, $Out2> t, Then<$Out2, $R2> t2) =>
-      _ChannelCopyWithImpl($value, t, t2);
+  ChannelCopyWith<$R2, Channel, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t) =>
+      _ChannelCopyWithImpl($value, $cast, t);
 }

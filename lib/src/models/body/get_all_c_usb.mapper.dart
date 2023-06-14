@@ -7,6 +7,7 @@ part of 'get_all_c_usb.dart';
 
 class GetAllCUsbBodyMapper extends ClassMapperBase<GetAllCUsbBody> {
   GetAllCUsbBodyMapper._();
+
   static GetAllCUsbBodyMapper? _instance;
   static GetAllCUsbBodyMapper ensureInitialized() {
     if (_instance == null) {
@@ -25,22 +26,23 @@ class GetAllCUsbBodyMapper extends ClassMapperBase<GetAllCUsbBody> {
   final String id = 'GetAllCUsbBody';
 
   static String _$countCUsbs(GetAllCUsbBody v) => v.countCUsbs;
+  static const Field<GetAllCUsbBody, String> _f$countCUsbs =
+      Field('countCUsbs', _$countCUsbs, key: 'count_c_usbs');
   static CUsbLanExtenders _$cUsbLanExtenders(GetAllCUsbBody v) =>
       v.cUsbLanExtenders;
+  static const Field<GetAllCUsbBody, CUsbLanExtenders> _f$cUsbLanExtenders =
+      Field('cUsbLanExtenders', _$cUsbLanExtenders, key: 'c_usb_lan_extenders');
 
   @override
   final Map<Symbol, Field<GetAllCUsbBody, dynamic>> fields = const {
-    #countCUsbs: Field<GetAllCUsbBody, String>('countCUsbs', _$countCUsbs,
-        key: 'count_c_usbs'),
-    #cUsbLanExtenders: Field<GetAllCUsbBody, CUsbLanExtenders>(
-        'cUsbLanExtenders', _$cUsbLanExtenders,
-        key: 'c_usb_lan_extenders'),
+    #countCUsbs: _f$countCUsbs,
+    #cUsbLanExtenders: _f$cUsbLanExtenders,
   };
 
   static GetAllCUsbBody _instantiate(DecodingData data) {
     return GetAllCUsbBody(
-        countCUsbs: data.get(#countCUsbs),
-        cUsbLanExtenders: data.get(#cUsbLanExtenders));
+        countCUsbs: data.dec(_f$countCUsbs),
+        cUsbLanExtenders: data.dec(_f$cUsbLanExtenders));
   }
 
   @override
@@ -85,25 +87,22 @@ mixin GetAllCUsbBodyMappable {
   }
 }
 
-extension GetAllCUsbBodyValueCopy<$R, $Out extends GetAllCUsbBody>
+extension GetAllCUsbBodyValueCopy<$R, $Out>
     on ObjectCopyWith<$R, GetAllCUsbBody, $Out> {
   GetAllCUsbBodyCopyWith<$R, GetAllCUsbBody, $Out> get $asGetAllCUsbBody =>
       $base.as((v, t, t2) => _GetAllCUsbBodyCopyWithImpl(v, t, t2));
 }
 
-typedef GetAllCUsbBodyCopyWithBound = GetAllCUsbBody;
-
-abstract class GetAllCUsbBodyCopyWith<$R, $In extends GetAllCUsbBody,
-    $Out extends GetAllCUsbBody> implements ClassCopyWith<$R, $In, $Out> {
+abstract class GetAllCUsbBodyCopyWith<$R, $In extends GetAllCUsbBody, $Out>
+    implements ClassCopyWith<$R, $In, $Out> {
   CUsbLanExtendersCopyWith<$R, CUsbLanExtenders, CUsbLanExtenders>
       get cUsbLanExtenders;
   $R call({String? countCUsbs, CUsbLanExtenders? cUsbLanExtenders});
-  GetAllCUsbBodyCopyWith<$R2, $In, $Out2>
-      $chain<$R2, $Out2 extends GetAllCUsbBody>(
-          Then<GetAllCUsbBody, $Out2> t, Then<$Out2, $R2> t2);
+  GetAllCUsbBodyCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+      Then<$Out2, $R2> t);
 }
 
-class _GetAllCUsbBodyCopyWithImpl<$R, $Out extends GetAllCUsbBody>
+class _GetAllCUsbBodyCopyWithImpl<$R, $Out>
     extends ClassCopyWithBase<$R, GetAllCUsbBody, $Out>
     implements GetAllCUsbBodyCopyWith<$R, GetAllCUsbBody, $Out> {
   _GetAllCUsbBodyCopyWithImpl(super.value, super.then, super.then2);
@@ -114,7 +113,7 @@ class _GetAllCUsbBodyCopyWithImpl<$R, $Out extends GetAllCUsbBody>
   @override
   CUsbLanExtendersCopyWith<$R, CUsbLanExtenders, CUsbLanExtenders>
       get cUsbLanExtenders => $value.cUsbLanExtenders.copyWith
-          .$chain($identity, (v) => call(cUsbLanExtenders: v));
+          .$chain((v) => call(cUsbLanExtenders: v));
   @override
   $R call({String? countCUsbs, CUsbLanExtenders? cUsbLanExtenders}) =>
       $apply(FieldCopyWithData({
@@ -128,14 +127,14 @@ class _GetAllCUsbBodyCopyWithImpl<$R, $Out extends GetAllCUsbBody>
           data.get(#cUsbLanExtenders, or: $value.cUsbLanExtenders));
 
   @override
-  GetAllCUsbBodyCopyWith<$R2, GetAllCUsbBody, $Out2>
-      $chain<$R2, $Out2 extends GetAllCUsbBody>(
-              Then<GetAllCUsbBody, $Out2> t, Then<$Out2, $R2> t2) =>
-          _GetAllCUsbBodyCopyWithImpl($value, t, t2);
+  GetAllCUsbBodyCopyWith<$R2, GetAllCUsbBody, $Out2> $chain<$R2, $Out2>(
+          Then<$Out2, $R2> t) =>
+      _GetAllCUsbBodyCopyWithImpl($value, $cast, t);
 }
 
 class CUsbLanExtendersMapper extends ClassMapperBase<CUsbLanExtenders> {
   CUsbLanExtendersMapper._();
+
   static CUsbLanExtendersMapper? _instance;
   static CUsbLanExtendersMapper ensureInitialized() {
     if (_instance == null) {
@@ -154,14 +153,16 @@ class CUsbLanExtendersMapper extends ClassMapperBase<CUsbLanExtenders> {
   final String id = 'CUsbLanExtenders';
 
   static List<CUsb> _$cUsb(CUsbLanExtenders v) => v.cUsb;
+  static const Field<CUsbLanExtenders, List<CUsb>> _f$cUsb =
+      Field('cUsb', _$cUsb, key: 'c_usb');
 
   @override
   final Map<Symbol, Field<CUsbLanExtenders, dynamic>> fields = const {
-    #cUsb: Field<CUsbLanExtenders, List<CUsb>>('cUsb', _$cUsb, key: 'c_usb'),
+    #cUsb: _f$cUsb,
   };
 
   static CUsbLanExtenders _instantiate(DecodingData data) {
-    return CUsbLanExtenders(cUsb: data.get(#cUsb));
+    return CUsbLanExtenders(cUsb: data.dec(_f$cUsb));
   }
 
   @override
@@ -208,25 +209,22 @@ mixin CUsbLanExtendersMappable {
   }
 }
 
-extension CUsbLanExtendersValueCopy<$R, $Out extends CUsbLanExtenders>
+extension CUsbLanExtendersValueCopy<$R, $Out>
     on ObjectCopyWith<$R, CUsbLanExtenders, $Out> {
   CUsbLanExtendersCopyWith<$R, CUsbLanExtenders, $Out>
       get $asCUsbLanExtenders =>
           $base.as((v, t, t2) => _CUsbLanExtendersCopyWithImpl(v, t, t2));
 }
 
-typedef CUsbLanExtendersCopyWithBound = CUsbLanExtenders;
-
-abstract class CUsbLanExtendersCopyWith<$R, $In extends CUsbLanExtenders,
-    $Out extends CUsbLanExtenders> implements ClassCopyWith<$R, $In, $Out> {
+abstract class CUsbLanExtendersCopyWith<$R, $In extends CUsbLanExtenders, $Out>
+    implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, CUsb, CUsbCopyWith<$R, CUsb, CUsb>> get cUsb;
   $R call({List<CUsb>? cUsb});
-  CUsbLanExtendersCopyWith<$R2, $In, $Out2>
-      $chain<$R2, $Out2 extends CUsbLanExtenders>(
-          Then<CUsbLanExtenders, $Out2> t, Then<$Out2, $R2> t2);
+  CUsbLanExtendersCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+      Then<$Out2, $R2> t);
 }
 
-class _CUsbLanExtendersCopyWithImpl<$R, $Out extends CUsbLanExtenders>
+class _CUsbLanExtendersCopyWithImpl<$R, $Out>
     extends ClassCopyWithBase<$R, CUsbLanExtenders, $Out>
     implements CUsbLanExtendersCopyWith<$R, CUsbLanExtenders, $Out> {
   _CUsbLanExtendersCopyWithImpl(super.value, super.then, super.then2);
@@ -236,9 +234,7 @@ class _CUsbLanExtendersCopyWithImpl<$R, $Out extends CUsbLanExtenders>
       CUsbLanExtendersMapper.ensureInitialized();
   @override
   ListCopyWith<$R, CUsb, CUsbCopyWith<$R, CUsb, CUsb>> get cUsb => ListCopyWith(
-      $value.cUsb,
-      (v, t) => v.copyWith.$chain<$R, CUsb>($identity, t),
-      (v) => call(cUsb: v));
+      $value.cUsb, (v, t) => v.copyWith.$chain(t), (v) => call(cUsb: v));
   @override
   $R call({List<CUsb>? cUsb}) =>
       $apply(FieldCopyWithData({if (cUsb != null) #cUsb: cUsb}));
@@ -247,14 +243,14 @@ class _CUsbLanExtendersCopyWithImpl<$R, $Out extends CUsbLanExtenders>
       CUsbLanExtenders(cUsb: data.get(#cUsb, or: $value.cUsb));
 
   @override
-  CUsbLanExtendersCopyWith<$R2, CUsbLanExtenders, $Out2>
-      $chain<$R2, $Out2 extends CUsbLanExtenders>(
-              Then<CUsbLanExtenders, $Out2> t, Then<$Out2, $R2> t2) =>
-          _CUsbLanExtendersCopyWithImpl($value, t, t2);
+  CUsbLanExtendersCopyWith<$R2, CUsbLanExtenders, $Out2> $chain<$R2, $Out2>(
+          Then<$Out2, $R2> t) =>
+      _CUsbLanExtendersCopyWithImpl($value, $cast, t);
 }
 
 class CUsbMapper extends ClassMapperBase<CUsb> {
   CUsbMapper._();
+
   static CUsbMapper? _instance;
   static CUsbMapper ensureInitialized() {
     if (_instance == null) {
@@ -272,30 +268,37 @@ class CUsbMapper extends ClassMapperBase<CUsb> {
   final String id = 'CUsb';
 
   static String _$mac(CUsb v) => v.mac;
+  static const Field<CUsb, String> _f$mac = Field('mac', _$mac);
   static String _$type(CUsb v) => v.type;
+  static const Field<CUsb, String> _f$type = Field('type', _$type);
   static String _$name(CUsb v) => v.name;
+  static const Field<CUsb, String> _f$name = Field('name', _$name);
   static String _$online(CUsb v) => v.online;
+  static const Field<CUsb, String> _f$online = Field('online', _$online);
   static String _$ip(CUsb v) => v.ip;
+  static const Field<CUsb, String> _f$ip = Field('ip', _$ip);
   static String? _$connectedTo(CUsb v) => v.connectedTo;
+  static const Field<CUsb, String> _f$connectedTo =
+      Field('connectedTo', _$connectedTo);
 
   @override
   final Map<Symbol, Field<CUsb, dynamic>> fields = const {
-    #mac: Field<CUsb, String>('mac', _$mac),
-    #type: Field<CUsb, String>('type', _$type),
-    #name: Field<CUsb, String>('name', _$name),
-    #online: Field<CUsb, String>('online', _$online),
-    #ip: Field<CUsb, String>('ip', _$ip),
-    #connectedTo: Field<CUsb, String?>('connectedTo', _$connectedTo),
+    #mac: _f$mac,
+    #type: _f$type,
+    #name: _f$name,
+    #online: _f$online,
+    #ip: _f$ip,
+    #connectedTo: _f$connectedTo,
   };
 
   static CUsb _instantiate(DecodingData data) {
     return CUsb(
-        mac: data.get(#mac),
-        type: data.get(#type),
-        name: data.get(#name),
-        online: data.get(#online),
-        ip: data.get(#ip),
-        connectedTo: data.get(#connectedTo));
+        mac: data.dec(_f$mac),
+        type: data.dec(_f$type),
+        name: data.dec(_f$name),
+        online: data.dec(_f$online),
+        ip: data.dec(_f$ip),
+        connectedTo: data.dec(_f$connectedTo));
   }
 
   @override
@@ -339,15 +342,12 @@ mixin CUsbMappable {
   }
 }
 
-extension CUsbValueCopy<$R, $Out extends CUsb>
-    on ObjectCopyWith<$R, CUsb, $Out> {
+extension CUsbValueCopy<$R, $Out> on ObjectCopyWith<$R, CUsb, $Out> {
   CUsbCopyWith<$R, CUsb, $Out> get $asCUsb =>
       $base.as((v, t, t2) => _CUsbCopyWithImpl(v, t, t2));
 }
 
-typedef CUsbCopyWithBound = CUsb;
-
-abstract class CUsbCopyWith<$R, $In extends CUsb, $Out extends CUsb>
+abstract class CUsbCopyWith<$R, $In extends CUsb, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   $R call(
       {String? mac,
@@ -356,12 +356,10 @@ abstract class CUsbCopyWith<$R, $In extends CUsb, $Out extends CUsb>
       String? online,
       String? ip,
       String? connectedTo});
-  CUsbCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2 extends CUsb>(
-      Then<CUsb, $Out2> t, Then<$Out2, $R2> t2);
+  CUsbCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
-class _CUsbCopyWithImpl<$R, $Out extends CUsb>
-    extends ClassCopyWithBase<$R, CUsb, $Out>
+class _CUsbCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, CUsb, $Out>
     implements CUsbCopyWith<$R, CUsb, $Out> {
   _CUsbCopyWithImpl(super.value, super.then, super.then2);
 
@@ -393,7 +391,6 @@ class _CUsbCopyWithImpl<$R, $Out extends CUsb>
       connectedTo: data.get(#connectedTo, or: $value.connectedTo));
 
   @override
-  CUsbCopyWith<$R2, CUsb, $Out2> $chain<$R2, $Out2 extends CUsb>(
-          Then<CUsb, $Out2> t, Then<$Out2, $R2> t2) =>
-      _CUsbCopyWithImpl($value, t, t2);
+  CUsbCopyWith<$R2, CUsb, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t) =>
+      _CUsbCopyWithImpl($value, $cast, t);
 }

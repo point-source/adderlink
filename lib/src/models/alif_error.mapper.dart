@@ -7,6 +7,7 @@ part of 'alif_error.dart';
 
 class AlifErrorMapper extends ClassMapperBase<AlifError> {
   AlifErrorMapper._();
+
   static AlifErrorMapper? _instance;
   static AlifErrorMapper ensureInitialized() {
     if (_instance == null) {
@@ -24,16 +25,19 @@ class AlifErrorMapper extends ClassMapperBase<AlifError> {
   final String id = 'AlifError';
 
   static int _$code(AlifError v) => v.code;
+  static const Field<AlifError, int> _f$code = Field('code', _$code);
   static String _$msg(AlifError v) => v.msg;
+  static const Field<AlifError, String> _f$msg =
+      Field('msg', _$msg, opt: true, def: '');
 
   @override
   final Map<Symbol, Field<AlifError, dynamic>> fields = const {
-    #code: Field<AlifError, int>('code', _$code),
-    #msg: Field<AlifError, String>('msg', _$msg, opt: true, def: ''),
+    #code: _f$code,
+    #msg: _f$msg,
   };
 
   static AlifError _instantiate(DecodingData data) {
-    return AlifError(code: data.get(#code), msg: data.get(#msg));
+    return AlifError(code: data.dec(_f$code), msg: data.dec(_f$msg));
   }
 
   @override
@@ -77,22 +81,18 @@ mixin AlifErrorMappable {
   }
 }
 
-extension AlifErrorValueCopy<$R, $Out extends AlifError>
-    on ObjectCopyWith<$R, AlifError, $Out> {
+extension AlifErrorValueCopy<$R, $Out> on ObjectCopyWith<$R, AlifError, $Out> {
   AlifErrorCopyWith<$R, AlifError, $Out> get $asAlifError =>
       $base.as((v, t, t2) => _AlifErrorCopyWithImpl(v, t, t2));
 }
 
-typedef AlifErrorCopyWithBound = AlifError;
-
-abstract class AlifErrorCopyWith<$R, $In extends AlifError,
-    $Out extends AlifError> implements ClassCopyWith<$R, $In, $Out> {
+abstract class AlifErrorCopyWith<$R, $In extends AlifError, $Out>
+    implements ClassCopyWith<$R, $In, $Out> {
   $R call({int? code, String? msg});
-  AlifErrorCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2 extends AlifError>(
-      Then<AlifError, $Out2> t, Then<$Out2, $R2> t2);
+  AlifErrorCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
-class _AlifErrorCopyWithImpl<$R, $Out extends AlifError>
+class _AlifErrorCopyWithImpl<$R, $Out>
     extends ClassCopyWithBase<$R, AlifError, $Out>
     implements AlifErrorCopyWith<$R, AlifError, $Out> {
   _AlifErrorCopyWithImpl(super.value, super.then, super.then2);
@@ -109,7 +109,7 @@ class _AlifErrorCopyWithImpl<$R, $Out extends AlifError>
       msg: data.get(#msg, or: $value.msg));
 
   @override
-  AlifErrorCopyWith<$R2, AlifError, $Out2> $chain<$R2, $Out2 extends AlifError>(
-          Then<AlifError, $Out2> t, Then<$Out2, $R2> t2) =>
-      _AlifErrorCopyWithImpl($value, t, t2);
+  AlifErrorCopyWith<$R2, AlifError, $Out2> $chain<$R2, $Out2>(
+          Then<$Out2, $R2> t) =>
+      _AlifErrorCopyWithImpl($value, $cast, t);
 }

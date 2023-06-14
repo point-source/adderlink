@@ -7,6 +7,7 @@ part of 'login.dart';
 
 class LoginBodyMapper extends ClassMapperBase<LoginBody> {
   LoginBodyMapper._();
+
   static LoginBodyMapper? _instance;
   static LoginBodyMapper ensureInitialized() {
     if (_instance == null) {
@@ -24,14 +25,15 @@ class LoginBodyMapper extends ClassMapperBase<LoginBody> {
   final String id = 'LoginBody';
 
   static String _$token(LoginBody v) => v.token;
+  static const Field<LoginBody, String> _f$token = Field('token', _$token);
 
   @override
   final Map<Symbol, Field<LoginBody, dynamic>> fields = const {
-    #token: Field<LoginBody, String>('token', _$token),
+    #token: _f$token,
   };
 
   static LoginBody _instantiate(DecodingData data) {
-    return LoginBody(token: data.get(#token));
+    return LoginBody(token: data.dec(_f$token));
   }
 
   @override
@@ -75,22 +77,18 @@ mixin LoginBodyMappable {
   }
 }
 
-extension LoginBodyValueCopy<$R, $Out extends LoginBody>
-    on ObjectCopyWith<$R, LoginBody, $Out> {
+extension LoginBodyValueCopy<$R, $Out> on ObjectCopyWith<$R, LoginBody, $Out> {
   LoginBodyCopyWith<$R, LoginBody, $Out> get $asLoginBody =>
       $base.as((v, t, t2) => _LoginBodyCopyWithImpl(v, t, t2));
 }
 
-typedef LoginBodyCopyWithBound = LoginBody;
-
-abstract class LoginBodyCopyWith<$R, $In extends LoginBody,
-    $Out extends LoginBody> implements ClassCopyWith<$R, $In, $Out> {
+abstract class LoginBodyCopyWith<$R, $In extends LoginBody, $Out>
+    implements ClassCopyWith<$R, $In, $Out> {
   $R call({String? token});
-  LoginBodyCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2 extends LoginBody>(
-      Then<LoginBody, $Out2> t, Then<$Out2, $R2> t2);
+  LoginBodyCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
-class _LoginBodyCopyWithImpl<$R, $Out extends LoginBody>
+class _LoginBodyCopyWithImpl<$R, $Out>
     extends ClassCopyWithBase<$R, LoginBody, $Out>
     implements LoginBodyCopyWith<$R, LoginBody, $Out> {
   _LoginBodyCopyWithImpl(super.value, super.then, super.then2);
@@ -106,7 +104,7 @@ class _LoginBodyCopyWithImpl<$R, $Out extends LoginBody>
       LoginBody(token: data.get(#token, or: $value.token));
 
   @override
-  LoginBodyCopyWith<$R2, LoginBody, $Out2> $chain<$R2, $Out2 extends LoginBody>(
-          Then<LoginBody, $Out2> t, Then<$Out2, $R2> t2) =>
-      _LoginBodyCopyWithImpl($value, t, t2);
+  LoginBodyCopyWith<$R2, LoginBody, $Out2> $chain<$R2, $Out2>(
+          Then<$Out2, $R2> t) =>
+      _LoginBodyCopyWithImpl($value, $cast, t);
 }
