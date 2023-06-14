@@ -4,7 +4,7 @@ version: 4.0.0-dev.1
 homepage: https://github.com/point-source/adderlink
 
 environment:
-  sdk: ">=2.17.3 <3.0.0"
+  sdk: '>=2.17.3 <4.0.0'
 
 dependencies:
   chopper: ^6.0.0
