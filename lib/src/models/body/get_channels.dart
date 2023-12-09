@@ -94,11 +94,11 @@ class Channel with ChannelMappable {
   @MappableField(key: 'c_sensitive')
   final String sensitive;
   @MappableField(key: 'view_button')
-  final String viewButton;
+  final String? viewButton;
   @MappableField(key: 'shared_button')
-  final String sharedButton;
+  final String? sharedButton;
   @MappableField(key: 'control_button')
-  final String controlButton;
+  final String? controlButton;
   @MappableField(key: 'exclusive_button')
-  final String exclusiveButton;
+  final String? exclusiveButton;
 }

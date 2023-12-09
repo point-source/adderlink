@@ -340,16 +340,16 @@ class ChannelMapper extends ClassMapperBase<Channel> {
   static String _$sensitive(Channel v) => v.sensitive;
   static const Field<Channel, String> _f$sensitive =
       Field('sensitive', _$sensitive, key: 'c_sensitive');
-  static String _$viewButton(Channel v) => v.viewButton;
+  static String? _$viewButton(Channel v) => v.viewButton;
   static const Field<Channel, String> _f$viewButton =
       Field('viewButton', _$viewButton, key: 'view_button');
-  static String _$sharedButton(Channel v) => v.sharedButton;
+  static String? _$sharedButton(Channel v) => v.sharedButton;
   static const Field<Channel, String> _f$sharedButton =
       Field('sharedButton', _$sharedButton, key: 'shared_button');
-  static String _$controlButton(Channel v) => v.controlButton;
+  static String? _$controlButton(Channel v) => v.controlButton;
   static const Field<Channel, String> _f$controlButton =
       Field('controlButton', _$controlButton, key: 'control_button');
-  static String _$exclusiveButton(Channel v) => v.exclusiveButton;
+  static String? _$exclusiveButton(Channel v) => v.exclusiveButton;
   static const Field<Channel, String> _f$exclusiveButton =
       Field('exclusiveButton', _$exclusiveButton, key: 'exclusive_button');
 
@@ -511,10 +511,10 @@ class _ChannelCopyWithImpl<$R, $Out>
           Object? audio1 = $none,
           Object? audio2 = $none,
           String? sensitive,
-          String? viewButton,
-          String? sharedButton,
-          String? controlButton,
-          String? exclusiveButton}) =>
+          Object? viewButton = $none,
+          Object? sharedButton = $none,
+          Object? controlButton = $none,
+          Object? exclusiveButton = $none}) =>
       $apply(FieldCopyWithData({
         if (channelId != null) #channelId: channelId,
         if (name != $none) #name: name,
@@ -535,10 +535,10 @@ class _ChannelCopyWithImpl<$R, $Out>
         if (audio1 != $none) #audio1: audio1,
         if (audio2 != $none) #audio2: audio2,
         if (sensitive != null) #sensitive: sensitive,
-        if (viewButton != null) #viewButton: viewButton,
-        if (sharedButton != null) #sharedButton: sharedButton,
-        if (controlButton != null) #controlButton: controlButton,
-        if (exclusiveButton != null) #exclusiveButton: exclusiveButton
+        if (viewButton != $none) #viewButton: viewButton,
+        if (sharedButton != $none) #sharedButton: sharedButton,
+        if (controlButton != $none) #controlButton: controlButton,
+        if (exclusiveButton != $none) #exclusiveButton: exclusiveButton
       }));
   @override
   Channel $make(CopyWithData data) => Channel(
