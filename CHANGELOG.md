@@ -1,3 +1,10 @@
+## 5.0.0
+
+- Fix get_channels (ALIF API 12)
+- Fix get_all_c_usb (in case of no C-USBs)
+- Upgrade Dart SDK requirement to ">=3.0.0 <4.0.0"
+- Upgrade dependencies
+
 ## 4.0.0-dev.1
 
 - Update dart_mappable to 3.1.1
