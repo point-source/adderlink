@@ -28,7 +28,7 @@ class GetAllCUsbBodyMapper extends ClassMapperBase<GetAllCUsbBody> {
   static String _$countCUsbs(GetAllCUsbBody v) => v.countCUsbs;
   static const Field<GetAllCUsbBody, String> _f$countCUsbs =
       Field('countCUsbs', _$countCUsbs, key: 'count_c_usbs');
-  static CUsbLanExtenders _$cUsbLanExtenders(GetAllCUsbBody v) =>
+  static CUsbLanExtenders? _$cUsbLanExtenders(GetAllCUsbBody v) =>
       v.cUsbLanExtenders;
   static const Field<GetAllCUsbBody, CUsbLanExtenders> _f$cUsbLanExtenders =
       Field('cUsbLanExtenders', _$cUsbLanExtenders, key: 'c_usb_lan_extenders');
@@ -95,7 +95,7 @@ extension GetAllCUsbBodyValueCopy<$R, $Out>
 
 abstract class GetAllCUsbBodyCopyWith<$R, $In extends GetAllCUsbBody, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  CUsbLanExtendersCopyWith<$R, CUsbLanExtenders, CUsbLanExtenders>
+  CUsbLanExtendersCopyWith<$R, CUsbLanExtenders, CUsbLanExtenders>?
       get cUsbLanExtenders;
   $R call({String? countCUsbs, CUsbLanExtenders? cUsbLanExtenders});
   GetAllCUsbBodyCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
@@ -111,14 +111,14 @@ class _GetAllCUsbBodyCopyWithImpl<$R, $Out>
   late final ClassMapperBase<GetAllCUsbBody> $mapper =
       GetAllCUsbBodyMapper.ensureInitialized();
   @override
-  CUsbLanExtendersCopyWith<$R, CUsbLanExtenders, CUsbLanExtenders>
-      get cUsbLanExtenders => $value.cUsbLanExtenders.copyWith
+  CUsbLanExtendersCopyWith<$R, CUsbLanExtenders, CUsbLanExtenders>?
+      get cUsbLanExtenders => $value.cUsbLanExtenders?.copyWith
           .$chain((v) => call(cUsbLanExtenders: v));
   @override
-  $R call({String? countCUsbs, CUsbLanExtenders? cUsbLanExtenders}) =>
+  $R call({String? countCUsbs, Object? cUsbLanExtenders = $none}) =>
       $apply(FieldCopyWithData({
         if (countCUsbs != null) #countCUsbs: countCUsbs,
-        if (cUsbLanExtenders != null) #cUsbLanExtenders: cUsbLanExtenders
+        if (cUsbLanExtenders != $none) #cUsbLanExtenders: cUsbLanExtenders
       }));
   @override
   GetAllCUsbBody $make(CopyWithData data) => GetAllCUsbBody(

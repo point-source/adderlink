@@ -12,7 +12,7 @@ class GetAllCUsbBody with GetAllCUsbBodyMappable {
   @MappableField(key: 'count_c_usbs')
   final String countCUsbs;
   @MappableField(key: 'c_usb_lan_extenders')
-  final CUsbLanExtenders cUsbLanExtenders;
+  final CUsbLanExtenders? cUsbLanExtenders;
 }
 
 @MappableClass()
