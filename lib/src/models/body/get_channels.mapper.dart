@@ -1,7 +1,8 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element
+// ignore_for_file: unused_element, unnecessary_cast
+// ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
 part of 'get_channels.dart';
 
@@ -15,11 +16,6 @@ class GetChannelsBodyMapper extends ClassMapperBase<GetChannelsBody> {
       ChannelsMapper.ensureInitialized();
     }
     return _instance!;
-  }
-
-  static T _guard<T>(T Function(MapperContainer) fn) {
-    ensureInitialized();
-    return fn(MapperContainer.globals);
   }
 
   @override
@@ -59,23 +55,23 @@ class GetChannelsBodyMapper extends ClassMapperBase<GetChannelsBody> {
   final Function instantiate = _instantiate;
 
   static GetChannelsBody fromMap(Map<String, dynamic> map) {
-    return _guard((c) => c.fromMap<GetChannelsBody>(map));
+    return ensureInitialized().decodeMap<GetChannelsBody>(map);
   }
 
   static GetChannelsBody fromJson(String json) {
-    return _guard((c) => c.fromJson<GetChannelsBody>(json));
+    return ensureInitialized().decodeJson<GetChannelsBody>(json);
   }
 }
 
 mixin GetChannelsBodyMappable {
   String toJson() {
-    return GetChannelsBodyMapper._guard(
-        (c) => c.toJson(this as GetChannelsBody));
+    return GetChannelsBodyMapper.ensureInitialized()
+        .encodeJson<GetChannelsBody>(this as GetChannelsBody);
   }
 
   Map<String, dynamic> toMap() {
-    return GetChannelsBodyMapper._guard(
-        (c) => c.toMap(this as GetChannelsBody));
+    return GetChannelsBodyMapper.ensureInitialized()
+        .encodeMap<GetChannelsBody>(this as GetChannelsBody);
   }
 
   GetChannelsBodyCopyWith<GetChannelsBody, GetChannelsBody, GetChannelsBody>
@@ -83,19 +79,22 @@ mixin GetChannelsBodyMappable {
           this as GetChannelsBody, $identity, $identity);
   @override
   String toString() {
-    return GetChannelsBodyMapper._guard((c) => c.asString(this));
+    return GetChannelsBodyMapper.ensureInitialized()
+        .stringifyValue(this as GetChannelsBody);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            GetChannelsBodyMapper._guard((c) => c.isEqual(this, other)));
+            GetChannelsBodyMapper.ensureInitialized()
+                .isValueEqual(this as GetChannelsBody, other));
   }
 
   @override
   int get hashCode {
-    return GetChannelsBodyMapper._guard((c) => c.hash(this));
+    return GetChannelsBodyMapper.ensureInitialized()
+        .hashValue(this as GetChannelsBody);
   }
 }
 
@@ -165,11 +164,6 @@ class ChannelsMapper extends ClassMapperBase<Channels> {
     return _instance!;
   }
 
-  static T _guard<T>(T Function(MapperContainer) fn) {
-    ensureInitialized();
-    return fn(MapperContainer.globals);
-  }
-
   @override
   final String id = 'Channels';
 
@@ -190,40 +184,43 @@ class ChannelsMapper extends ClassMapperBase<Channels> {
   final Function instantiate = _instantiate;
 
   static Channels fromMap(Map<String, dynamic> map) {
-    return _guard((c) => c.fromMap<Channels>(map));
+    return ensureInitialized().decodeMap<Channels>(map);
   }
 
   static Channels fromJson(String json) {
-    return _guard((c) => c.fromJson<Channels>(json));
+    return ensureInitialized().decodeJson<Channels>(json);
   }
 }
 
 mixin ChannelsMappable {
   String toJson() {
-    return ChannelsMapper._guard((c) => c.toJson(this as Channels));
+    return ChannelsMapper.ensureInitialized()
+        .encodeJson<Channels>(this as Channels);
   }
 
   Map<String, dynamic> toMap() {
-    return ChannelsMapper._guard((c) => c.toMap(this as Channels));
+    return ChannelsMapper.ensureInitialized()
+        .encodeMap<Channels>(this as Channels);
   }
 
   ChannelsCopyWith<Channels, Channels, Channels> get copyWith =>
       _ChannelsCopyWithImpl(this as Channels, $identity, $identity);
   @override
   String toString() {
-    return ChannelsMapper._guard((c) => c.asString(this));
+    return ChannelsMapper.ensureInitialized().stringifyValue(this as Channels);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            ChannelsMapper._guard((c) => c.isEqual(this, other)));
+            ChannelsMapper.ensureInitialized()
+                .isValueEqual(this as Channels, other));
   }
 
   @override
   int get hashCode {
-    return ChannelsMapper._guard((c) => c.hash(this));
+    return ChannelsMapper.ensureInitialized().hashValue(this as Channels);
   }
 }
 
@@ -273,11 +270,6 @@ class ChannelMapper extends ClassMapperBase<Channel> {
       MapperContainer.globals.use(_instance = ChannelMapper._());
     }
     return _instance!;
-  }
-
-  static T _guard<T>(T Function(MapperContainer) fn) {
-    ensureInitialized();
-    return fn(MapperContainer.globals);
   }
 
   @override
@@ -411,40 +403,43 @@ class ChannelMapper extends ClassMapperBase<Channel> {
   final Function instantiate = _instantiate;
 
   static Channel fromMap(Map<String, dynamic> map) {
-    return _guard((c) => c.fromMap<Channel>(map));
+    return ensureInitialized().decodeMap<Channel>(map);
   }
 
   static Channel fromJson(String json) {
-    return _guard((c) => c.fromJson<Channel>(json));
+    return ensureInitialized().decodeJson<Channel>(json);
   }
 }
 
 mixin ChannelMappable {
   String toJson() {
-    return ChannelMapper._guard((c) => c.toJson(this as Channel));
+    return ChannelMapper.ensureInitialized()
+        .encodeJson<Channel>(this as Channel);
   }
 
   Map<String, dynamic> toMap() {
-    return ChannelMapper._guard((c) => c.toMap(this as Channel));
+    return ChannelMapper.ensureInitialized()
+        .encodeMap<Channel>(this as Channel);
   }
 
   ChannelCopyWith<Channel, Channel, Channel> get copyWith =>
       _ChannelCopyWithImpl(this as Channel, $identity, $identity);
   @override
   String toString() {
-    return ChannelMapper._guard((c) => c.asString(this));
+    return ChannelMapper.ensureInitialized().stringifyValue(this as Channel);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            ChannelMapper._guard((c) => c.isEqual(this, other)));
+            ChannelMapper.ensureInitialized()
+                .isValueEqual(this as Channel, other));
   }
 
   @override
   int get hashCode {
-    return ChannelMapper._guard((c) => c.hash(this));
+    return ChannelMapper.ensureInitialized().hashValue(this as Channel);
   }
 }
 

@@ -1,7 +1,8 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element
+// ignore_for_file: unused_element, unnecessary_cast
+// ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
 part of 'login.dart';
 
@@ -14,11 +15,6 @@ class LoginBodyMapper extends ClassMapperBase<LoginBody> {
       MapperContainer.globals.use(_instance = LoginBodyMapper._());
     }
     return _instance!;
-  }
-
-  static T _guard<T>(T Function(MapperContainer) fn) {
-    ensureInitialized();
-    return fn(MapperContainer.globals);
   }
 
   @override
@@ -40,40 +36,44 @@ class LoginBodyMapper extends ClassMapperBase<LoginBody> {
   final Function instantiate = _instantiate;
 
   static LoginBody fromMap(Map<String, dynamic> map) {
-    return _guard((c) => c.fromMap<LoginBody>(map));
+    return ensureInitialized().decodeMap<LoginBody>(map);
   }
 
   static LoginBody fromJson(String json) {
-    return _guard((c) => c.fromJson<LoginBody>(json));
+    return ensureInitialized().decodeJson<LoginBody>(json);
   }
 }
 
 mixin LoginBodyMappable {
   String toJson() {
-    return LoginBodyMapper._guard((c) => c.toJson(this as LoginBody));
+    return LoginBodyMapper.ensureInitialized()
+        .encodeJson<LoginBody>(this as LoginBody);
   }
 
   Map<String, dynamic> toMap() {
-    return LoginBodyMapper._guard((c) => c.toMap(this as LoginBody));
+    return LoginBodyMapper.ensureInitialized()
+        .encodeMap<LoginBody>(this as LoginBody);
   }
 
   LoginBodyCopyWith<LoginBody, LoginBody, LoginBody> get copyWith =>
       _LoginBodyCopyWithImpl(this as LoginBody, $identity, $identity);
   @override
   String toString() {
-    return LoginBodyMapper._guard((c) => c.asString(this));
+    return LoginBodyMapper.ensureInitialized()
+        .stringifyValue(this as LoginBody);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            LoginBodyMapper._guard((c) => c.isEqual(this, other)));
+            LoginBodyMapper.ensureInitialized()
+                .isValueEqual(this as LoginBody, other));
   }
 
   @override
   int get hashCode {
-    return LoginBodyMapper._guard((c) => c.hash(this));
+    return LoginBodyMapper.ensureInitialized().hashValue(this as LoginBody);
   }
 }
 

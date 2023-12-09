@@ -6,8 +6,6 @@ analyzer:
     - "**/*.freezed.dart"
     - "**/*.chopper.dart"
     - "**/*.mapper.dart"
-  plugins:
-    - dart_code_metrics
 
 linter:
   rules:

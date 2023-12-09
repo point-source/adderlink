@@ -1,7 +1,8 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element
+// ignore_for_file: unused_element, unnecessary_cast
+// ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
 part of 'alif_error.dart';
 
@@ -14,11 +15,6 @@ class AlifErrorMapper extends ClassMapperBase<AlifError> {
       MapperContainer.globals.use(_instance = AlifErrorMapper._());
     }
     return _instance!;
-  }
-
-  static T _guard<T>(T Function(MapperContainer) fn) {
-    ensureInitialized();
-    return fn(MapperContainer.globals);
   }
 
   @override
@@ -44,40 +40,44 @@ class AlifErrorMapper extends ClassMapperBase<AlifError> {
   final Function instantiate = _instantiate;
 
   static AlifError fromMap(Map<String, dynamic> map) {
-    return _guard((c) => c.fromMap<AlifError>(map));
+    return ensureInitialized().decodeMap<AlifError>(map);
   }
 
   static AlifError fromJson(String json) {
-    return _guard((c) => c.fromJson<AlifError>(json));
+    return ensureInitialized().decodeJson<AlifError>(json);
   }
 }
 
 mixin AlifErrorMappable {
   String toJson() {
-    return AlifErrorMapper._guard((c) => c.toJson(this as AlifError));
+    return AlifErrorMapper.ensureInitialized()
+        .encodeJson<AlifError>(this as AlifError);
   }
 
   Map<String, dynamic> toMap() {
-    return AlifErrorMapper._guard((c) => c.toMap(this as AlifError));
+    return AlifErrorMapper.ensureInitialized()
+        .encodeMap<AlifError>(this as AlifError);
   }
 
   AlifErrorCopyWith<AlifError, AlifError, AlifError> get copyWith =>
       _AlifErrorCopyWithImpl(this as AlifError, $identity, $identity);
   @override
   String toString() {
-    return AlifErrorMapper._guard((c) => c.asString(this));
+    return AlifErrorMapper.ensureInitialized()
+        .stringifyValue(this as AlifError);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            AlifErrorMapper._guard((c) => c.isEqual(this, other)));
+            AlifErrorMapper.ensureInitialized()
+                .isValueEqual(this as AlifError, other));
   }
 
   @override
   int get hashCode {
-    return AlifErrorMapper._guard((c) => c.hash(this));
+    return AlifErrorMapper.ensureInitialized().hashValue(this as AlifError);
   }
 }
 

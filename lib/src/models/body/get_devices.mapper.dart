@@ -1,7 +1,8 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element
+// ignore_for_file: unused_element, unnecessary_cast
+// ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
 part of 'get_devices.dart';
 
@@ -15,11 +16,6 @@ class GetDevicesBodyMapper extends ClassMapperBase<GetDevicesBody> {
       DevicesMapper.ensureInitialized();
     }
     return _instance!;
-  }
-
-  static T _guard<T>(T Function(MapperContainer) fn) {
-    ensureInitialized();
-    return fn(MapperContainer.globals);
   }
 
   @override
@@ -62,21 +58,23 @@ class GetDevicesBodyMapper extends ClassMapperBase<GetDevicesBody> {
   final Function instantiate = _instantiate;
 
   static GetDevicesBody fromMap(Map<String, dynamic> map) {
-    return _guard((c) => c.fromMap<GetDevicesBody>(map));
+    return ensureInitialized().decodeMap<GetDevicesBody>(map);
   }
 
   static GetDevicesBody fromJson(String json) {
-    return _guard((c) => c.fromJson<GetDevicesBody>(json));
+    return ensureInitialized().decodeJson<GetDevicesBody>(json);
   }
 }
 
 mixin GetDevicesBodyMappable {
   String toJson() {
-    return GetDevicesBodyMapper._guard((c) => c.toJson(this as GetDevicesBody));
+    return GetDevicesBodyMapper.ensureInitialized()
+        .encodeJson<GetDevicesBody>(this as GetDevicesBody);
   }
 
   Map<String, dynamic> toMap() {
-    return GetDevicesBodyMapper._guard((c) => c.toMap(this as GetDevicesBody));
+    return GetDevicesBodyMapper.ensureInitialized()
+        .encodeMap<GetDevicesBody>(this as GetDevicesBody);
   }
 
   GetDevicesBodyCopyWith<GetDevicesBody, GetDevicesBody, GetDevicesBody>
@@ -84,19 +82,22 @@ mixin GetDevicesBodyMappable {
           this as GetDevicesBody, $identity, $identity);
   @override
   String toString() {
-    return GetDevicesBodyMapper._guard((c) => c.asString(this));
+    return GetDevicesBodyMapper.ensureInitialized()
+        .stringifyValue(this as GetDevicesBody);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            GetDevicesBodyMapper._guard((c) => c.isEqual(this, other)));
+            GetDevicesBodyMapper.ensureInitialized()
+                .isValueEqual(this as GetDevicesBody, other));
   }
 
   @override
   int get hashCode {
-    return GetDevicesBodyMapper._guard((c) => c.hash(this));
+    return GetDevicesBodyMapper.ensureInitialized()
+        .hashValue(this as GetDevicesBody);
   }
 }
 
@@ -170,11 +171,6 @@ class DevicesMapper extends ClassMapperBase<Devices> {
     return _instance!;
   }
 
-  static T _guard<T>(T Function(MapperContainer) fn) {
-    ensureInitialized();
-    return fn(MapperContainer.globals);
-  }
-
   @override
   final String id = 'Devices';
 
@@ -195,40 +191,43 @@ class DevicesMapper extends ClassMapperBase<Devices> {
   final Function instantiate = _instantiate;
 
   static Devices fromMap(Map<String, dynamic> map) {
-    return _guard((c) => c.fromMap<Devices>(map));
+    return ensureInitialized().decodeMap<Devices>(map);
   }
 
   static Devices fromJson(String json) {
-    return _guard((c) => c.fromJson<Devices>(json));
+    return ensureInitialized().decodeJson<Devices>(json);
   }
 }
 
 mixin DevicesMappable {
   String toJson() {
-    return DevicesMapper._guard((c) => c.toJson(this as Devices));
+    return DevicesMapper.ensureInitialized()
+        .encodeJson<Devices>(this as Devices);
   }
 
   Map<String, dynamic> toMap() {
-    return DevicesMapper._guard((c) => c.toMap(this as Devices));
+    return DevicesMapper.ensureInitialized()
+        .encodeMap<Devices>(this as Devices);
   }
 
   DevicesCopyWith<Devices, Devices, Devices> get copyWith =>
       _DevicesCopyWithImpl(this as Devices, $identity, $identity);
   @override
   String toString() {
-    return DevicesMapper._guard((c) => c.asString(this));
+    return DevicesMapper.ensureInitialized().stringifyValue(this as Devices);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            DevicesMapper._guard((c) => c.isEqual(this, other)));
+            DevicesMapper.ensureInitialized()
+                .isValueEqual(this as Devices, other));
   }
 
   @override
   int get hashCode {
-    return DevicesMapper._guard((c) => c.hash(this));
+    return DevicesMapper.ensureInitialized().hashValue(this as Devices);
   }
 }
 
@@ -277,11 +276,6 @@ class DeviceMapper extends ClassMapperBase<Device> {
       MapperContainer.globals.use(_instance = DeviceMapper._());
     }
     return _instance!;
-  }
-
-  static T _guard<T>(T Function(MapperContainer) fn) {
-    ensureInitialized();
-    return fn(MapperContainer.globals);
   }
 
   @override
@@ -473,40 +467,41 @@ class DeviceMapper extends ClassMapperBase<Device> {
   final Function instantiate = _instantiate;
 
   static Device fromMap(Map<String, dynamic> map) {
-    return _guard((c) => c.fromMap<Device>(map));
+    return ensureInitialized().decodeMap<Device>(map);
   }
 
   static Device fromJson(String json) {
-    return _guard((c) => c.fromJson<Device>(json));
+    return ensureInitialized().decodeJson<Device>(json);
   }
 }
 
 mixin DeviceMappable {
   String toJson() {
-    return DeviceMapper._guard((c) => c.toJson(this as Device));
+    return DeviceMapper.ensureInitialized().encodeJson<Device>(this as Device);
   }
 
   Map<String, dynamic> toMap() {
-    return DeviceMapper._guard((c) => c.toMap(this as Device));
+    return DeviceMapper.ensureInitialized().encodeMap<Device>(this as Device);
   }
 
   DeviceCopyWith<Device, Device, Device> get copyWith =>
       _DeviceCopyWithImpl(this as Device, $identity, $identity);
   @override
   String toString() {
-    return DeviceMapper._guard((c) => c.asString(this));
+    return DeviceMapper.ensureInitialized().stringifyValue(this as Device);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            DeviceMapper._guard((c) => c.isEqual(this, other)));
+            DeviceMapper.ensureInitialized()
+                .isValueEqual(this as Device, other));
   }
 
   @override
   int get hashCode {
-    return DeviceMapper._guard((c) => c.hash(this));
+    return DeviceMapper.ensureInitialized().hashValue(this as Device);
   }
 }
 

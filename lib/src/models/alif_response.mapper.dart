@@ -1,7 +1,8 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element
+// ignore_for_file: unused_element, unnecessary_cast
+// ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
 part of 'alif_response.dart';
 
@@ -15,11 +16,6 @@ class AlifResponseMapper extends ClassMapperBase<AlifResponse> {
       AlifErrorMapper.ensureInitialized();
     }
     return _instance!;
-  }
-
-  static T _guard<T>(T Function(MapperContainer) fn) {
-    ensureInitialized();
-    return fn(MapperContainer.globals);
   }
 
   @override
@@ -66,21 +62,23 @@ class AlifResponseMapper extends ClassMapperBase<AlifResponse> {
   final Function instantiate = _instantiate;
 
   static AlifResponse<T> fromMap<T>(Map<String, dynamic> map) {
-    return _guard((c) => c.fromMap<AlifResponse<T>>(map));
+    return ensureInitialized().decodeMap<AlifResponse<T>>(map);
   }
 
   static AlifResponse<T> fromJson<T>(String json) {
-    return _guard((c) => c.fromJson<AlifResponse<T>>(json));
+    return ensureInitialized().decodeJson<AlifResponse<T>>(json);
   }
 }
 
 mixin AlifResponseMappable<T> {
   String toJson() {
-    return AlifResponseMapper._guard((c) => c.toJson(this as AlifResponse<T>));
+    return AlifResponseMapper.ensureInitialized()
+        .encodeJson<AlifResponse<T>>(this as AlifResponse<T>);
   }
 
   Map<String, dynamic> toMap() {
-    return AlifResponseMapper._guard((c) => c.toMap(this as AlifResponse<T>));
+    return AlifResponseMapper.ensureInitialized()
+        .encodeMap<AlifResponse<T>>(this as AlifResponse<T>);
   }
 
   AlifResponseCopyWith<AlifResponse<T>, AlifResponse<T>, AlifResponse<T>, T>
@@ -88,19 +86,22 @@ mixin AlifResponseMappable<T> {
           this as AlifResponse<T>, $identity, $identity);
   @override
   String toString() {
-    return AlifResponseMapper._guard((c) => c.asString(this));
+    return AlifResponseMapper.ensureInitialized()
+        .stringifyValue(this as AlifResponse<T>);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            AlifResponseMapper._guard((c) => c.isEqual(this, other)));
+            AlifResponseMapper.ensureInitialized()
+                .isValueEqual(this as AlifResponse<T>, other));
   }
 
   @override
   int get hashCode {
-    return AlifResponseMapper._guard((c) => c.hash(this));
+    return AlifResponseMapper.ensureInitialized()
+        .hashValue(this as AlifResponse<T>);
   }
 }
 

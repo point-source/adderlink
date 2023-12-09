@@ -1,7 +1,8 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element
+// ignore_for_file: unused_element, unnecessary_cast
+// ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
 part of 'get_all_c_usb.dart';
 
@@ -15,11 +16,6 @@ class GetAllCUsbBodyMapper extends ClassMapperBase<GetAllCUsbBody> {
       CUsbLanExtendersMapper.ensureInitialized();
     }
     return _instance!;
-  }
-
-  static T _guard<T>(T Function(MapperContainer) fn) {
-    ensureInitialized();
-    return fn(MapperContainer.globals);
   }
 
   @override
@@ -49,21 +45,23 @@ class GetAllCUsbBodyMapper extends ClassMapperBase<GetAllCUsbBody> {
   final Function instantiate = _instantiate;
 
   static GetAllCUsbBody fromMap(Map<String, dynamic> map) {
-    return _guard((c) => c.fromMap<GetAllCUsbBody>(map));
+    return ensureInitialized().decodeMap<GetAllCUsbBody>(map);
   }
 
   static GetAllCUsbBody fromJson(String json) {
-    return _guard((c) => c.fromJson<GetAllCUsbBody>(json));
+    return ensureInitialized().decodeJson<GetAllCUsbBody>(json);
   }
 }
 
 mixin GetAllCUsbBodyMappable {
   String toJson() {
-    return GetAllCUsbBodyMapper._guard((c) => c.toJson(this as GetAllCUsbBody));
+    return GetAllCUsbBodyMapper.ensureInitialized()
+        .encodeJson<GetAllCUsbBody>(this as GetAllCUsbBody);
   }
 
   Map<String, dynamic> toMap() {
-    return GetAllCUsbBodyMapper._guard((c) => c.toMap(this as GetAllCUsbBody));
+    return GetAllCUsbBodyMapper.ensureInitialized()
+        .encodeMap<GetAllCUsbBody>(this as GetAllCUsbBody);
   }
 
   GetAllCUsbBodyCopyWith<GetAllCUsbBody, GetAllCUsbBody, GetAllCUsbBody>
@@ -71,19 +69,22 @@ mixin GetAllCUsbBodyMappable {
           this as GetAllCUsbBody, $identity, $identity);
   @override
   String toString() {
-    return GetAllCUsbBodyMapper._guard((c) => c.asString(this));
+    return GetAllCUsbBodyMapper.ensureInitialized()
+        .stringifyValue(this as GetAllCUsbBody);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            GetAllCUsbBodyMapper._guard((c) => c.isEqual(this, other)));
+            GetAllCUsbBodyMapper.ensureInitialized()
+                .isValueEqual(this as GetAllCUsbBody, other));
   }
 
   @override
   int get hashCode {
-    return GetAllCUsbBodyMapper._guard((c) => c.hash(this));
+    return GetAllCUsbBodyMapper.ensureInitialized()
+        .hashValue(this as GetAllCUsbBody);
   }
 }
 
@@ -144,11 +145,6 @@ class CUsbLanExtendersMapper extends ClassMapperBase<CUsbLanExtenders> {
     return _instance!;
   }
 
-  static T _guard<T>(T Function(MapperContainer) fn) {
-    ensureInitialized();
-    return fn(MapperContainer.globals);
-  }
-
   @override
   final String id = 'CUsbLanExtenders';
 
@@ -169,23 +165,23 @@ class CUsbLanExtendersMapper extends ClassMapperBase<CUsbLanExtenders> {
   final Function instantiate = _instantiate;
 
   static CUsbLanExtenders fromMap(Map<String, dynamic> map) {
-    return _guard((c) => c.fromMap<CUsbLanExtenders>(map));
+    return ensureInitialized().decodeMap<CUsbLanExtenders>(map);
   }
 
   static CUsbLanExtenders fromJson(String json) {
-    return _guard((c) => c.fromJson<CUsbLanExtenders>(json));
+    return ensureInitialized().decodeJson<CUsbLanExtenders>(json);
   }
 }
 
 mixin CUsbLanExtendersMappable {
   String toJson() {
-    return CUsbLanExtendersMapper._guard(
-        (c) => c.toJson(this as CUsbLanExtenders));
+    return CUsbLanExtendersMapper.ensureInitialized()
+        .encodeJson<CUsbLanExtenders>(this as CUsbLanExtenders);
   }
 
   Map<String, dynamic> toMap() {
-    return CUsbLanExtendersMapper._guard(
-        (c) => c.toMap(this as CUsbLanExtenders));
+    return CUsbLanExtendersMapper.ensureInitialized()
+        .encodeMap<CUsbLanExtenders>(this as CUsbLanExtenders);
   }
 
   CUsbLanExtendersCopyWith<CUsbLanExtenders, CUsbLanExtenders, CUsbLanExtenders>
@@ -193,19 +189,22 @@ mixin CUsbLanExtendersMappable {
           this as CUsbLanExtenders, $identity, $identity);
   @override
   String toString() {
-    return CUsbLanExtendersMapper._guard((c) => c.asString(this));
+    return CUsbLanExtendersMapper.ensureInitialized()
+        .stringifyValue(this as CUsbLanExtenders);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            CUsbLanExtendersMapper._guard((c) => c.isEqual(this, other)));
+            CUsbLanExtendersMapper.ensureInitialized()
+                .isValueEqual(this as CUsbLanExtenders, other));
   }
 
   @override
   int get hashCode {
-    return CUsbLanExtendersMapper._guard((c) => c.hash(this));
+    return CUsbLanExtendersMapper.ensureInitialized()
+        .hashValue(this as CUsbLanExtenders);
   }
 }
 
@@ -259,11 +258,6 @@ class CUsbMapper extends ClassMapperBase<CUsb> {
     return _instance!;
   }
 
-  static T _guard<T>(T Function(MapperContainer) fn) {
-    ensureInitialized();
-    return fn(MapperContainer.globals);
-  }
-
   @override
   final String id = 'CUsb';
 
@@ -305,40 +299,40 @@ class CUsbMapper extends ClassMapperBase<CUsb> {
   final Function instantiate = _instantiate;
 
   static CUsb fromMap(Map<String, dynamic> map) {
-    return _guard((c) => c.fromMap<CUsb>(map));
+    return ensureInitialized().decodeMap<CUsb>(map);
   }
 
   static CUsb fromJson(String json) {
-    return _guard((c) => c.fromJson<CUsb>(json));
+    return ensureInitialized().decodeJson<CUsb>(json);
   }
 }
 
 mixin CUsbMappable {
   String toJson() {
-    return CUsbMapper._guard((c) => c.toJson(this as CUsb));
+    return CUsbMapper.ensureInitialized().encodeJson<CUsb>(this as CUsb);
   }
 
   Map<String, dynamic> toMap() {
-    return CUsbMapper._guard((c) => c.toMap(this as CUsb));
+    return CUsbMapper.ensureInitialized().encodeMap<CUsb>(this as CUsb);
   }
 
   CUsbCopyWith<CUsb, CUsb, CUsb> get copyWith =>
       _CUsbCopyWithImpl(this as CUsb, $identity, $identity);
   @override
   String toString() {
-    return CUsbMapper._guard((c) => c.asString(this));
+    return CUsbMapper.ensureInitialized().stringifyValue(this as CUsb);
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (runtimeType == other.runtimeType &&
-            CUsbMapper._guard((c) => c.isEqual(this, other)));
+            CUsbMapper.ensureInitialized().isValueEqual(this as CUsb, other));
   }
 
   @override
   int get hashCode {
-    return CUsbMapper._guard((c) => c.hash(this));
+    return CUsbMapper.ensureInitialized().hashValue(this as CUsb);
   }
 }
 
