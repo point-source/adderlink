@@ -6,6 +6,7 @@ part of 'adderlink_base.dart';
 // ChopperGenerator
 // **************************************************************************
 
+// coverage:ignore-file
 // ignore_for_file: type=lint
 final class _$AdderlinkService extends AdderlinkService {
   _$AdderlinkService([ChopperClient? client]) {
@@ -14,7 +15,7 @@ final class _$AdderlinkService extends AdderlinkService {
   }
 
   @override
-  final definitionType = AdderlinkService;
+  final Type definitionType = AdderlinkService;
 
   @override
   Future<Response<AlifResponse<LoginBody>>> login({
@@ -107,6 +108,7 @@ final class _$AdderlinkService extends AdderlinkService {
     required String channelId,
     required String receiverId,
     required String token,
+    String mode = 's',
     int version = 5,
     String method = 'connect_channel',
   }) {
@@ -115,6 +117,7 @@ final class _$AdderlinkService extends AdderlinkService {
       'c_id': channelId,
       'rx_id': receiverId,
       'token': token,
+      'mode': mode,
       'v': version,
       'method': method,
     };

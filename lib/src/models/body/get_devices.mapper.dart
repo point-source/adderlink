@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, unnecessary_cast
+// ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
 part of 'get_devices.dart';
@@ -37,7 +37,7 @@ class GetDevicesBodyMapper extends ClassMapperBase<GetDevicesBody> {
       Field('devices', _$devices);
 
   @override
-  final Map<Symbol, Field<GetDevicesBody, dynamic>> fields = const {
+  final MappableFields<GetDevicesBody> fields = const {
     #page: _f$page,
     #resultsPerPage: _f$resultsPerPage,
     #totalDevices: _f$totalDevices,
@@ -88,10 +88,8 @@ mixin GetDevicesBodyMappable {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (runtimeType == other.runtimeType &&
-            GetDevicesBodyMapper.ensureInitialized()
-                .isValueEqual(this as GetDevicesBody, other));
+    return GetDevicesBodyMapper.ensureInitialized()
+        .equalsValue(this as GetDevicesBody, other);
   }
 
   @override
@@ -179,7 +177,7 @@ class DevicesMapper extends ClassMapperBase<Devices> {
       Field('device', _$device);
 
   @override
-  final Map<Symbol, Field<Devices, dynamic>> fields = const {
+  final MappableFields<Devices> fields = const {
     #device: _f$device,
   };
 
@@ -219,10 +217,8 @@ mixin DevicesMappable {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (runtimeType == other.runtimeType &&
-            DevicesMapper.ensureInitialized()
-                .isValueEqual(this as Devices, other));
+    return DevicesMapper.ensureInitialized()
+        .equalsValue(this as Devices, other);
   }
 
   @override
@@ -388,7 +384,7 @@ class DeviceMapper extends ClassMapperBase<Device> {
       Field('countUsers', _$countUsers, key: 'count_users');
 
   @override
-  final Map<Symbol, Field<Device, dynamic>> fields = const {
+  final MappableFields<Device> fields = const {
     #deviceId: _f$deviceId,
     #serialNumber: _f$serialNumber,
     #macAddress: _f$macAddress,
@@ -493,10 +489,7 @@ mixin DeviceMappable {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (runtimeType == other.runtimeType &&
-            DeviceMapper.ensureInitialized()
-                .isValueEqual(this as Device, other));
+    return DeviceMapper.ensureInitialized().equalsValue(this as Device, other);
   }
 
   @override

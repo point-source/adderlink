@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, unnecessary_cast
+// ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
 part of 'get_channels.dart';
@@ -36,7 +36,7 @@ class GetChannelsBodyMapper extends ClassMapperBase<GetChannelsBody> {
       Field('channels', _$channels, opt: true);
 
   @override
-  final Map<Symbol, Field<GetChannelsBody, dynamic>> fields = const {
+  final MappableFields<GetChannelsBody> fields = const {
     #page: _f$page,
     #resultsPerPage: _f$resultsPerPage,
     #channelCount: _f$channelCount,
@@ -85,10 +85,8 @@ mixin GetChannelsBodyMappable {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (runtimeType == other.runtimeType &&
-            GetChannelsBodyMapper.ensureInitialized()
-                .isValueEqual(this as GetChannelsBody, other));
+    return GetChannelsBodyMapper.ensureInitialized()
+        .equalsValue(this as GetChannelsBody, other);
   }
 
   @override
@@ -172,7 +170,7 @@ class ChannelsMapper extends ClassMapperBase<Channels> {
       Field('channel', _$channel);
 
   @override
-  final Map<Symbol, Field<Channels, dynamic>> fields = const {
+  final MappableFields<Channels> fields = const {
     #channel: _f$channel,
   };
 
@@ -212,10 +210,8 @@ mixin ChannelsMappable {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (runtimeType == other.runtimeType &&
-            ChannelsMapper.ensureInitialized()
-                .isValueEqual(this as Channels, other));
+    return ChannelsMapper.ensureInitialized()
+        .equalsValue(this as Channels, other);
   }
 
   @override
@@ -346,7 +342,7 @@ class ChannelMapper extends ClassMapperBase<Channel> {
       Field('exclusiveButton', _$exclusiveButton, key: 'exclusive_button');
 
   @override
-  final Map<Symbol, Field<Channel, dynamic>> fields = const {
+  final MappableFields<Channel> fields = const {
     #channelId: _f$channelId,
     #name: _f$name,
     #description: _f$description,
@@ -431,10 +427,8 @@ mixin ChannelMappable {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (runtimeType == other.runtimeType &&
-            ChannelMapper.ensureInitialized()
-                .isValueEqual(this as Channel, other));
+    return ChannelMapper.ensureInitialized()
+        .equalsValue(this as Channel, other);
   }
 
   @override

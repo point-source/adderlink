@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, unnecessary_cast
+// ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
 part of 'get_all_c_usb.dart';
@@ -30,7 +30,7 @@ class GetAllCUsbBodyMapper extends ClassMapperBase<GetAllCUsbBody> {
       Field('cUsbLanExtenders', _$cUsbLanExtenders, key: 'c_usb_lan_extenders');
 
   @override
-  final Map<Symbol, Field<GetAllCUsbBody, dynamic>> fields = const {
+  final MappableFields<GetAllCUsbBody> fields = const {
     #countCUsbs: _f$countCUsbs,
     #cUsbLanExtenders: _f$cUsbLanExtenders,
   };
@@ -75,10 +75,8 @@ mixin GetAllCUsbBodyMappable {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (runtimeType == other.runtimeType &&
-            GetAllCUsbBodyMapper.ensureInitialized()
-                .isValueEqual(this as GetAllCUsbBody, other));
+    return GetAllCUsbBodyMapper.ensureInitialized()
+        .equalsValue(this as GetAllCUsbBody, other);
   }
 
   @override
@@ -153,7 +151,7 @@ class CUsbLanExtendersMapper extends ClassMapperBase<CUsbLanExtenders> {
       Field('cUsb', _$cUsb, key: 'c_usb');
 
   @override
-  final Map<Symbol, Field<CUsbLanExtenders, dynamic>> fields = const {
+  final MappableFields<CUsbLanExtenders> fields = const {
     #cUsb: _f$cUsb,
   };
 
@@ -195,10 +193,8 @@ mixin CUsbLanExtendersMappable {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (runtimeType == other.runtimeType &&
-            CUsbLanExtendersMapper.ensureInitialized()
-                .isValueEqual(this as CUsbLanExtenders, other));
+    return CUsbLanExtendersMapper.ensureInitialized()
+        .equalsValue(this as CUsbLanExtenders, other);
   }
 
   @override
@@ -276,7 +272,7 @@ class CUsbMapper extends ClassMapperBase<CUsb> {
       Field('connectedTo', _$connectedTo);
 
   @override
-  final Map<Symbol, Field<CUsb, dynamic>> fields = const {
+  final MappableFields<CUsb> fields = const {
     #mac: _f$mac,
     #type: _f$type,
     #name: _f$name,
@@ -325,9 +321,7 @@ mixin CUsbMappable {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (runtimeType == other.runtimeType &&
-            CUsbMapper.ensureInitialized().isValueEqual(this as CUsb, other));
+    return CUsbMapper.ensureInitialized().equalsValue(this as CUsb, other);
   }
 
   @override

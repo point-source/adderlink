@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, unnecessary_cast
+// ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
 part of 'alif_error.dart';
@@ -27,7 +27,7 @@ class AlifErrorMapper extends ClassMapperBase<AlifError> {
       Field('msg', _$msg, opt: true, def: '');
 
   @override
-  final Map<Symbol, Field<AlifError, dynamic>> fields = const {
+  final MappableFields<AlifError> fields = const {
     #code: _f$code,
     #msg: _f$msg,
   };
@@ -69,10 +69,8 @@ mixin AlifErrorMappable {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (runtimeType == other.runtimeType &&
-            AlifErrorMapper.ensureInitialized()
-                .isValueEqual(this as AlifError, other));
+    return AlifErrorMapper.ensureInitialized()
+        .equalsValue(this as AlifError, other);
   }
 
   @override

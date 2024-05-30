@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, unnecessary_cast
+// ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
 part of 'alif_response.dart';
@@ -41,7 +41,7 @@ class AlifResponseMapper extends ClassMapperBase<AlifResponse> {
       Field('body', _$body, opt: true, arg: _arg$body);
 
   @override
-  final Map<Symbol, Field<AlifResponse, dynamic>> fields = const {
+  final MappableFields<AlifResponse> fields = const {
     #version: _f$version,
     #timestamp: _f$timestamp,
     #isSuccessful: _f$isSuccessful,
@@ -92,10 +92,8 @@ mixin AlifResponseMappable<T> {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (runtimeType == other.runtimeType &&
-            AlifResponseMapper.ensureInitialized()
-                .isValueEqual(this as AlifResponse<T>, other));
+    return AlifResponseMapper.ensureInitialized()
+        .equalsValue(this as AlifResponse<T>, other);
   }
 
   @override

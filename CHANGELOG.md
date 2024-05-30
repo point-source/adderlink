@@ -1,3 +1,7 @@
+## 6.0.0
+
+- Upgrade chopper to 8.0.0 and regenerate files
+
 ## 5.0.0
 
 - Fix get_channels (ALIF API 12)

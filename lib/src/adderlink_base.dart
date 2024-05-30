@@ -116,6 +116,11 @@ abstract class AdderlinkService extends ChopperService {
     /// Authentication token of a currently logged-in user (active session)
     @Query() required String token,
 
+    /// The mode in which to connect the channel
+    ///
+    /// Optional, 'v', 's', 'e', 'p' - defaults to 's')
+    @Query('mode') String mode = 's',
+
     /// The AIM API version this request is designed for
     @Query('v') int version = 5,
 

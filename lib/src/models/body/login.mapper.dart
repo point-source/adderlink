@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, unnecessary_cast
+// ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
 part of 'login.dart';
@@ -24,7 +24,7 @@ class LoginBodyMapper extends ClassMapperBase<LoginBody> {
   static const Field<LoginBody, String> _f$token = Field('token', _$token);
 
   @override
-  final Map<Symbol, Field<LoginBody, dynamic>> fields = const {
+  final MappableFields<LoginBody> fields = const {
     #token: _f$token,
   };
 
@@ -65,10 +65,8 @@ mixin LoginBodyMappable {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (runtimeType == other.runtimeType &&
-            LoginBodyMapper.ensureInitialized()
-                .isValueEqual(this as LoginBody, other));
+    return LoginBodyMapper.ensureInitialized()
+        .equalsValue(this as LoginBody, other);
   }
 
   @override
